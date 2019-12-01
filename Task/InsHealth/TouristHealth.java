@@ -5,7 +5,7 @@ public class TouristHealth extends Health {
   private int qtyDay;
 
     public TouristHealth() {}
-     public TouristHealth (String name, int age, String sex, String nationality, String country, int qtyDay ){
+     public  TouristHealth (String name, int age, String sex, String nationality, String country, int qtyDay ){
       super(name,age, sex, nationality);
       this.country= country;
       this.qtyDay= qtyDay;

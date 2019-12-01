@@ -18,4 +18,10 @@ public class RealEstate {
 
     public void setYearProduce(int yearProduce) { this.yearProduce = yearProduce;  }
     public void getYearProduce() { System.out.println("yearProduce"+ " " + this.yearProduce);  }
+
+  public void own (){
+    System.out.println(toString());
+  }
+  @Override
+  public String toString(){return ("I have :" + typeEstate+ " " + valueEstate+ " " + yearProduce);}
 }

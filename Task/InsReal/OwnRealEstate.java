@@ -15,14 +15,22 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
             System.out.println("The level of RealEstate Luxe");
     }
 
+    @Override
+    public void levelRealEstate(){
+        System.out.println("I use overloading");    }
+
+     @Override
+      public void own(){System.out.println(toString()+" "+ square + " " +qtyRoom); }
+
     public OwnRealEstate() {}
       public OwnRealEstate (String typeEstate, int valueEstate, int yearProduce,int square,int qtyRoom ){
       super(typeEstate,valueEstate,yearProduce);
       this.square= square;
       this.qtyRoom= qtyRoom;
+
   }
 
-    public void setSquare(int square){this.square= square;    }
+    public void setSquare(int square){this.square= square; }
     public void getSquare (){System.out.println("The square"+ " " + this.square);}
 
     public void setQtyRoom(int qtyRoom){ this.qtyRoom= qtyRoom; }

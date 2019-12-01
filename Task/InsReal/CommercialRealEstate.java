@@ -12,6 +12,12 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
       else
           System.out.println("The level of RealEstate Luxe");
   }
+  @Override
+  public void levelRealEstate(){
+      System.out.println("I use overloading");
+  }
+    @Override
+    public void own(){System.out.println(toString()+" "+ square + " " +qtyoffices); }
   public CommercialRealEstate() {}
      public CommercialRealEstate (String typeEstate, int valueEstate, int yearProduce,int square,int qtyoffices ){
       super(typeEstate,valueEstate,yearProduce);

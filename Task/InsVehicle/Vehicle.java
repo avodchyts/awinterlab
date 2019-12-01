@@ -1,4 +1,7 @@
 package com.InsVehicle;
+
+import java.util.Scanner;
+
 public abstract class Vehicle {
 
     protected String typeVehicle;
@@ -17,5 +20,27 @@ public abstract class Vehicle {
         public void setYearProduce (int yearProduce){ this.yearProduce = yearProduce;  }
         public void getYearProduce (){ System.out.println("yearProduce - " + yearProduce);}
 
+ public static  void VehicleInsurance (){
+    Scanner in = new Scanner(System.in);
+    System.out.print("Enter a type of vehicle: ");
+    String typeVehicle = in.nextLine();
 
+    switch (typeVehicle){
+        case "AirTransport" :
+            System.out.println("The cost of insurance for airtransport is " + AirTransport.AirTransportInsurance()+ "$");
+            break;
+        case "LandTransport":
+            System.out.println("The cost of insurance for landvehicle is " + LandTransport.LandVehicleInsurance()+ "$");
+            break;
+        case "RailwayTransport":
+            System.out.println("The cost of insurance for railwaytransport is "+ RailwayTransport.RailwayTransportInsurance()+ "$");
+            break;
+        case "WaterTransport":
+            System.out.println("The cost of insurance for watertransport is" + WaterTransport.WaterTransportInsurance() + "$");
+            break;
+
+    }
+        }
 }
+
+
