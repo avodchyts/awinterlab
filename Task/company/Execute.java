@@ -1,71 +1,136 @@
 package com.company;
 
-
 import com.InsHealth.TouristHealth;
-import com.InsReal.CommercialRealEstate;
-import com.InsReal.OwnRealEstate;
-import com.InsVihcle.AirTransport;
-import com.InsVihcle.LandVihcle;
-import com.InsVihcle.ReilwayTransport;
-import com.InsVihcle.WaterTransport;
+
+import com.InsReal.*;
+import com.InsVehicle.AirTransport;
+import com.InsVehicle.LandVehicle;
+import com.InsVehicle.RailwayTransport;
+import com.InsVehicle.WaterTransport;
 
 public class Execute {
-    public static void main(String[] args){
-         AirTransport Boeing = new AirTransport();
-         Boeing.setVihcle("Jet",10000,2017);
-        Boeing.setAirTransport(30,"reactive",2,100);
-        Boeing.getVihcle();
-        Boeing.getAirTransport();
 
-        System.out.println (Boeing);
+ public static void main(String[] args){
+       AirTransport Boeing = new AirTransport();
+        Boeing.setTypeVehicle("Jet");
+        Boeing.setValueVehicle(10000);
+        Boeing.setYearProduce(2017);
+        Boeing.setLengthWing(30);
+        Boeing.setTypeEngine("reactive");
+        Boeing.setQtyEngine(2);
+        Boeing.setSizeVolume(100);
 
-      LandVihcle DAF = new LandVihcle();
-      DAF.setVihcle("Truck",500,2019);
-      DAF.setLandVihcle(50,3,"DAF");
-      DAF.getVihcle();
-      DAF.getLandVihcle();
+       Boeing.getTypeVehicle();
+       Boeing.getValueVehicle();
+       Boeing.getYearProduce ();
+       Boeing.getLengthWing();
+       Boeing.getTypeEngine();
+       Boeing.getQtyEngine();
+       Boeing.getSizeVolume();
 
-      System.out.println(DAF);
+       System.out.println (Boeing);
 
-      ReilwayTransport Cometa = new ReilwayTransport();
-      Cometa.setVihcle("Train",1500,2010);
-        Cometa.setReilwayTransport("Electric",5,150);
-        Cometa.getVihcle();
-        Cometa.getReilwayTransport();
+        LandVehicle DAF = new LandVehicle();
+        DAF.setTypeVehicle("Truck");
+        DAF.setValueVehicle(500);
+        DAF.setYearProduce(2019);
+        DAF.setFullWeight (50);
+        DAF.setQtyAxis (3);
+        DAF.setNameCar ("DAF");
+
+        DAF.getTypeVehicle();
+        DAF.getValueVehicle();
+        DAF.getYearProduce();
+        DAF.getFullWeight ();
+        DAF.getQtyAxis ();
+        DAF.getNameCar ();
+
+        System.out.println(DAF);
+
+        RailwayTransport Cometa = new RailwayTransport();
+        Cometa.setTypeVehicle("Train");
+        Cometa.setValueVehicle(1500);
+        Cometa.setYearProduce(2010);
+        Cometa.setTypeTrain("Electric");
+        Cometa.setQtyCarriage(5);
+        Cometa.setMaxSpeed(150);
+
+        Cometa.getTypeVehicle();
+        Cometa.getValueVehicle();
+        Cometa.getYearProduce();
+        Cometa.getTypeTrain();
+        Cometa.getQtyCarriage();
+        Cometa.getMaxSpeed();
 
         System.out.println(Cometa);
 
         WaterTransport Titanic = new WaterTransport();
-        Titanic.setVihcle("Ship",1000000,1909);
-        Titanic.setWaterTransport(52310,55000,269);
-        Titanic.getVihcle();
-        Titanic.getWaterTransport();
+          Titanic.setTypeVehicle("Ship");
+          Titanic.setValueVehicle(1000000);
+          Titanic.setYearProduce(1909);
+          Titanic.setWaterVolume(52310);
+          Titanic.setPowerEngine(55000);
+          Titanic.setLengthBoat(269);
+
+          Titanic.getTypeVehicle();
+          Titanic.getValueVehicle();
+          Titanic.getYearProduce();
+          Titanic.getWaterVolume();
+          Titanic.getPowerEngine();
+          Titanic.getLengthBoat();
 
         System.out.println(Titanic);
 
         CommercialRealEstate Plaza = new CommercialRealEstate ();
-        Plaza.setRealEstate("commercial", 50000,2009);
-        Plaza.setCommercialRealEstate(1000,5);
-        Plaza.getRealEstate();
-        Plaza.getCommercialRealEstate();
+          Plaza.setTypeEstate ("commercial");
+          Plaza.setValueEstate(50000);
+          Plaza.setYearProduce(2009);
+          Plaza.setSquare(1000);
+          Plaza.setQtyoffices(5);
+
+          Plaza.getTypeEstate ();
+          Plaza.getValueEstate();
+          Plaza.getYearProduce();
+          Plaza.getSquare();
+          Plaza.getQtyoffices();
+          Plaza.levelRealEstate(11000);
         System.out.println(Plaza);
 
-        OwnRealEstate Flat = new OwnRealEstate();
-        Flat.setRealEstate("Personal",700,2000);
-        Flat.setOwnRealEstate(120,5);
-        Flat.getRealEstate();
-        Flat.getOwnRealEstate();
 
+        OwnRealEstate Flat = new OwnRealEstate();
+        Flat.setTypeEstate("Personal");
+        Flat.setValueEstate(1000);
+        Flat.setYearProduce (2000);
+        Flat.setSquare(120);
+        Flat.setQtyRoom(5);
+
+        Flat.getTypeEstate();
+        Flat.getValueEstate();
+        Flat.getYearProduce ();
+        Flat.getSquare();
+        Flat.getQtyRoom();
+         Flat.levelRealEstate(1000);
         System.out.println(Flat);
 
         TouristHealth Alex = new TouristHealth();
-        Alex.setHealth("Alex",30, "male", "Belarus" );
-        Alex.setTouristHealth("Thailand", 14);
-        Alex.getHealth();
-        Alex.getTouristHealth();
+          Alex.setName("Alex");
+          Alex.setAge(30);
+          Alex.setSex("male");
+          Alex.setNationality("Belarus");
+          Alex.setCountry("Thailand");
+          Alex.setQtyDay (14);
 
-        System.out.println(Alex);
+               System.out.println(Alex);
 
+     RealEstate home = new RealEstate("Personal", 15000,2012 );
+     RealEstate office = new RealEstate("Commercial", 200000,2018);
+     Owner owner = new Owner();
+     owner.setRealEstate((IRealEstate)home);
+     owner.getRealEstate().levelRealEstate(15000);
+     owner.setRealEstate((IRealEstate) office);
+     owner.getRealEstate().levelRealEstate(200000);
+     System.out.print(owner);
     }
 }
+
 
