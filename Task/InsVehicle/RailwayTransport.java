@@ -2,7 +2,7 @@ package com.InsVehicle;
 
 import java.util.Scanner;
 
-public class RailwayTransport extends Vehicle {
+public class RailwayTransport extends Transport implements IInsuranceCoeff {
     private String typeTrain;
     private int qtyCarriage;
     private int maxSpeed;
@@ -52,7 +52,7 @@ public class RailwayTransport extends Vehicle {
         int coefqtyCarriage = 1;
         int coefmaxSpeed = 1;
         int result;
-        final int k =4; // insurance coefficient
+
 
 
         Scanner in = new Scanner(System.in);
@@ -66,6 +66,7 @@ public class RailwayTransport extends Vehicle {
             case "diesel ":
                 coeftypeTrain = 2;
                 break;
+            default:System.out.println(0);
 
         }
         System.out.print("Enter quantity carriages: ");
@@ -81,6 +82,8 @@ public class RailwayTransport extends Vehicle {
                 coefqtyCarriage = 3;
                 break;
 
+            default:System.out.println(0);
+
         }
 
         System.out.print("Enter max speed: ");
@@ -93,11 +96,19 @@ public class RailwayTransport extends Vehicle {
             case 175:
                 coefmaxSpeed = 2;
                 break;
+            default:System.out.println(0);
         }
 
 
-        result = ( coeftypeTrain + coefqtyCarriage + coefmaxSpeed) * k;
+        result = ( coeftypeTrain + coefqtyCarriage + coefmaxSpeed) * K6;
 
         return result;
+    }
+
+
+
+    @Override
+    public void InsuranceCoef(int n) {
+        System.out.println("Insurance coefficient for air transport:"+ "" + K6);
     }
 }

@@ -1,12 +1,13 @@
 package com.company;
 
 import com.InsHealth.TouristHealth;
-
-import com.InsReal.*;
+import com.InsReal.CommercialRealEstate;
+import com.InsReal.IRealEstate;
+import com.InsReal.OwnRealEstate;
+import com.InsReal.RealEstate;
 import com.InsVehicle.*;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public final class Execute {
 
@@ -85,7 +86,7 @@ public final class Execute {
 
         System.out.println();
 
-        Vehicle.VehicleInsurance();
+        Transport.VehicleInsurance();
 
         System.out.println();
 
@@ -154,14 +155,6 @@ public final class Execute {
 
         System.out.println();
 
-        List<RealEstate> property = Arrays.asList(townHouse, flat, house, plaza);
-        //System.out.println(property.get(0));
-        for (RealEstate i : property) {
-            i.own();
-        }
-
-        System.out.println();
-
         TouristHealth alex = new TouristHealth();
         alex.setName("Alex");
         alex.setAge(30);
@@ -187,9 +180,68 @@ public final class Execute {
         realEstate.levelRealEstate(2000);
         ((CommercialRealEstate) realEstate).getSquare();
         ((CommercialRealEstate) realEstate).getQtyoffices();
-
         System.out.print(realEstate);
-    }
+
+        System.out.println();
+
+        ArrayList<RealEstate> property = new ArrayList<RealEstate>();
+        property.add(flat);
+        property.add(townHouse);
+        property.add(house);
+        property.add(plaza);
+
+        Iterator<RealEstate> p = property.iterator();
+        while (p.hasNext()){System.out.println(p.next());
+        }
+
+          List<RealEstate> h = Arrays.asList(townHouse, flat, house, plaza);
+        //System.out.println(have.get(0));
+        for (RealEstate i : h) {
+            i.own();
+        }
+
+        LinkedList<Transport> v = new LinkedList<Transport>();
+        v.add(daf);
+        v.add(titanic);
+        v.add(boeing);
+        v.add(cometa);
+
+        Iterator<Transport> d = v.iterator();
+        while( d.hasNext()){System.out.println(d.next());}
+        System.out.println();
+
+        Set<RealEstate> tec = new HashSet<RealEstate>();
+        tec.add(flat);
+        tec.add(house);
+        tec.add(plaza);
+        tec.add(townHouse);
+        tec.add(flat);
+        System.out.println(tec);
+        System.out.println(tec.contains(house));
+
+        System.out.println();
+
+        Map<Integer,RealEstate> m = new HashMap<Integer, RealEstate>();
+        m.put(1, flat);
+        m.put(2,townHouse);
+        m.put(3,plaza);
+        m.put(4,house);
+        System.out.println(m);
+        System.out.println(m.containsKey(2));
+        System.out.println(m.containsValue(plaza));
+
+        System.out.println();
+
+        Queue<String> q = new PriorityQueue<>();
+        q.add ("flat");
+        q.add("house");
+        q.add ("townHouse");
+        q.add ("plaza");
+        for (String i : q) { System.out.println(i);
+        }
+
+
+            }
 }
 
 

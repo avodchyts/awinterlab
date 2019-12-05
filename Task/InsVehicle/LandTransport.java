@@ -2,7 +2,7 @@ package com.InsVehicle;
 
 import java.util.Scanner;
 
-public class LandTransport extends Vehicle {
+public class LandTransport extends Transport implements IInsuranceCoeff {
     private int fullWeight;
     private int qtyAxis;
     private String nameCar;
@@ -52,7 +52,6 @@ public class LandTransport extends Vehicle {
         int coeffullWeight = 1;
         int coefqtyAxis = 1;
         int coefnameCar = 1;
-        final int k =3; // insurance coefficient
         int result;
 
 
@@ -70,6 +69,7 @@ public class LandTransport extends Vehicle {
             case 50:
                 coeffullWeight = 3;
                 break;
+            default:System.out.println(0);
 
         }
          System.out.print("Enter quantity axis: ");
@@ -84,6 +84,7 @@ public class LandTransport extends Vehicle {
             case 4:
                 coeffullWeight = 3;
                 break;
+            default:System.out.println(0);
 
         }
 
@@ -97,10 +98,17 @@ public class LandTransport extends Vehicle {
             case "Volvo":
                 coefnameCar = 2;
                 break;
+
+            default:System.out.println(0);
         }
 
 
-        result = (coeffullWeight + coefqtyAxis + coefnameCar) * k;
+        result = (coeffullWeight + coefqtyAxis + coefnameCar) * K3;
         return result;
+    }
+
+    @Override
+    public void InsuranceCoef(int n) {
+        System.out.println("Insurance coefficient for land transport:"+ "" + K3);
     }
 }

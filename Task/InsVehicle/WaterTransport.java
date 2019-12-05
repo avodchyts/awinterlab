@@ -2,7 +2,7 @@ package com.InsVehicle;
 
 import java.util.Scanner;
 
-public class WaterTransport extends Vehicle {
+public class WaterTransport extends Transport implements IInsuranceCoeff {
 
     private int waterVolume;
     private int powerEngine;
@@ -35,7 +35,7 @@ public class WaterTransport extends Vehicle {
         int coefpowerEngine = 1;
         int coeflengthBoat = 1;
         int result;
-        final int k = 6; // insurance coefficient
+
 
         Scanner in = new Scanner(System.in);
         System.out.print("Enter water volume: ");
@@ -48,6 +48,8 @@ public class WaterTransport extends Vehicle {
             case 20000:
                 coefwaterVolume = 2;
                 break;
+            default:
+                System.out.println(0);
 
         }
         System.out.print("Enter power engine: ");
@@ -63,6 +65,9 @@ public class WaterTransport extends Vehicle {
                 coefpowerEngine = 3;
                 break;
 
+            default:
+                System.out.println(0);
+
         }
 
         System.out.print("Enter length boat: ");
@@ -75,11 +80,18 @@ public class WaterTransport extends Vehicle {
             case 30:
                 coeflengthBoat = 2;
                 break;
+
+            default:
+                System.out.println(0);
         }
 
 
-        result = (coefwaterVolume + coefpowerEngine + coeflengthBoat) * k;
+        result = (coefwaterVolume + coefpowerEngine + coeflengthBoat) * K4;
 
         return result;
     }
+
+
+        @Override
+        public void InsuranceCoef ( int n){System.out.println("Insurance coefficient for water transport:"+ "" + K4 ); }
 }

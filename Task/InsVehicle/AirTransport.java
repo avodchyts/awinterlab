@@ -2,7 +2,7 @@ package com.InsVehicle;
 
 import java.util.Scanner;
 
-public class AirTransport extends Vehicle {
+public class AirTransport extends Transport implements IInsuranceCoeff {
     private int lengthWing;
     private String typeEngine;
     private int qtyEngine;
@@ -40,7 +40,6 @@ public class AirTransport extends Vehicle {
         int coefTypeEngine = 1 ;
         int coefQtyEngine = 1 ;
         int coefSizeVolume =1 ;
-        final int k =5; // insurance coefficient
         int result;
 
 
@@ -55,6 +54,7 @@ public class AirTransport extends Vehicle {
                 case 40:
                     coeflengthWing = 2;
                     break;
+                default:System.out.println(0);
             }
 
         System.out.print("Enter Type of Engines: ");
@@ -67,6 +67,7 @@ public class AirTransport extends Vehicle {
             case "turboreactive" :
                 coefTypeEngine = 2;
                 break;
+            default:System.out.println(0);
         }
 
         System.out.print("Enter quantity of engines: ");
@@ -79,6 +80,8 @@ public class AirTransport extends Vehicle {
             case 4:
                 coefQtyEngine = 2;
                 break;
+
+            default:System.out.println(0);
         }
 
         System.out.print("Enter Size Volume: ");
@@ -91,9 +94,15 @@ public class AirTransport extends Vehicle {
             case 200:
                 coefSizeVolume = 2;
                 break;
+            default:System.out.println(0);
         }
-        result = (coeflengthWing + coefTypeEngine + coefQtyEngine+ coefSizeVolume) * k ;
+        result = (coeflengthWing + coefTypeEngine + coefQtyEngine+ coefSizeVolume) * K5 ;
         return result;
+    }
+
+    @Override
+    public void InsuranceCoef(int n) {
+        System.out.println("Insurance coefficient for air transport:"+ "" + K5 );
     }
 }
 
