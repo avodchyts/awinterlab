@@ -1,12 +1,16 @@
 package com.InsVehicle;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 
 public class WaterTransport extends Transport implements IInsuranceCoeff {
 
     private int waterVolume;
     private int powerEngine;
     private int lengthBoat;
+    private Set<WaterTransport> waterTransports = new HashSet<WaterTransport>();
 
     @Override
     public void Vehicle (String typeVehicle, int valueVehicle, int yearProduce ){
@@ -16,11 +20,20 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
     }
     public WaterTransport () {}
       public WaterTransport (int waterVolume, int powerEngine, int lengthBoat){
-      this.waterVolume = waterVolume;
+      this.waterTransports = new HashSet<WaterTransport>();
+        this.waterVolume = waterVolume;
       this.powerEngine = powerEngine;
       this.lengthBoat = lengthBoat;
   }
 
+  public void addWaterTransport(WaterTransport waterTransport) {waterTransports.add(waterTransport);}
+  public  Set<WaterTransport> getListofWaterTransport ()// warning
+  {
+      Iterator<WaterTransport> d = waterTransports.iterator();
+      while( d.hasNext()){System.out.println(d.next());}
+      return waterTransports;
+
+  }
   public void setWaterVolume (int waterVolume){this.waterVolume = waterVolume;}
   public void getWaterVolume(){System.out.println("Water volume"+ " " + this.waterVolume);}
 
@@ -30,7 +43,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
   public void setLengthBoat(int lengthBoat){this.lengthBoat = lengthBoat;  }
   public void getLengthBoat (){ System.out.println("Length of boat"+ " " + this.lengthBoat);  }
 
-    static int WaterTransportInsurance() {
+    static int waterTransportInsurance() {
         int coefwaterVolume = 1;
         int coefpowerEngine = 1;
         int coeflengthBoat = 1;
@@ -49,7 +62,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
                 coefwaterVolume = 2;
                 break;
             default:
-                System.out.println(0);
+                coefwaterVolume = 0;
 
         }
         System.out.print("Enter power engine: ");
@@ -82,7 +95,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
                 break;
 
             default:
-                System.out.println(0);
+                coeflengthBoat = 4;
         }
 
 
@@ -93,5 +106,11 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
 
 
         @Override
-        public void InsuranceCoef ( int n){System.out.println("Insurance coefficient for water transport:"+ "" + K4 ); }
-}
+        public void insuranceCoef ( int n){System.out.println("Insurance coefficient for water transport:"+ "" + K4 ); }
+
+    @Override
+    public String toString() {
+        return ("Water volume" + " " + waterVolume + " " + "Power engine" + " " + powerEngine + " " + "Length boat" + " " + lengthBoat);
+    }
+
+    }

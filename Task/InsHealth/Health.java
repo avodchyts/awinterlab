@@ -25,4 +25,6 @@ public class Health {
 
   public void setNationality(String nationality) {this.nationality = nationality;}
     public void getNationality() {System.out.println("Nationality - " + this.nationality); }
+
+    public String toString(){return"Name" + " " + name + " " + "Age" + " " + age + " " + "Sex" + " " + sex;}
 }

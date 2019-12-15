@@ -7,6 +7,7 @@ public interface IInsuranceCoeff {
     int K4=4;
     int K5=5;
     int K6=6;
+      public void insuranceCoef(int n);
 
-    public void InsuranceCoef(int n);
+
 }

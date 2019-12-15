@@ -1,9 +1,13 @@
 package com.InsReal;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class OwnRealEstate extends RealEstate implements IRealEstate {
   private int square;
   private int qtyRoom;
     IRealEstate level;
+
 
     @Override
     public void levelRealEstate( int n ){
@@ -28,7 +32,9 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
       this.square= square;
       this.qtyRoom= qtyRoom;
 
+
   }
+
 
     public void setSquare(int square){this.square= square; }
     public void getSquare (){System.out.println("The square"+ " " + this.square);}

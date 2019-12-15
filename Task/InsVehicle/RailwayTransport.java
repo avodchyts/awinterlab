@@ -7,6 +7,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
     private int qtyCarriage;
     private int maxSpeed;
 
+
     @Override
     public void Vehicle(String typeVehicle, int valueVehicle, int yearProduce) {
         this.typeVehicle = typeVehicle;
@@ -47,7 +48,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
         System.out.println("Max speed " + " " + this.maxSpeed);
     }
 
-    public static int RailwayTransportInsurance() {
+    public static int railwayTransportInsurance() {
         int coeftypeTrain = 1;
         int coefqtyCarriage = 1;
         int coefmaxSpeed = 1;
@@ -66,7 +67,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
             case "diesel ":
                 coeftypeTrain = 2;
                 break;
-            default:System.out.println(0);
+            default:coeftypeTrain = 3;
 
         }
         System.out.print("Enter quantity carriages: ");
@@ -82,7 +83,8 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
                 coefqtyCarriage = 3;
                 break;
 
-            default:System.out.println(0);
+            default:
+                coefqtyCarriage = 4;
 
         }
 
@@ -96,7 +98,8 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
             case 175:
                 coefmaxSpeed = 2;
                 break;
-            default:System.out.println(0);
+            default:
+                coefmaxSpeed = 2;
         }
 
 
@@ -108,7 +111,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
 
 
     @Override
-    public void InsuranceCoef(int n) {
+    public void insuranceCoef(int n) {
         System.out.println("Insurance coefficient for air transport:"+ "" + K6);
     }
 }
