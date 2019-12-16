@@ -1,5 +1,9 @@
 package com.InsReal;
 
+import java.util.Scanner;
+
+import static com.InsVehicle.IInsuranceCoeff.K2;
+
 public class CommercialRealEstate extends RealEstate implements IRealEstate {
    private int square;
   private int qtyoffices;
@@ -31,4 +35,44 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
   public void setQtyoffices(int qtyoffices){ this.qtyoffices= qtyoffices;  }
   public void getQtyoffices (){System.out.println("Quantity Offices"+ "" + this.qtyoffices);
   }
+  public static int commercialEstateInsurance (){
+        int squarecoeff = 1;
+        int qtyofficescoeff = 1;
+        int result =1;
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Enter square : ");
+        int square = in.nextInt();
+
+        switch (square) {
+            case 500:
+                squarecoeff = 1;
+                break;
+            case 1000:
+                squarecoeff = 2;
+                break;
+            default:
+                squarecoeff = 3;
+        }
+
+        System.out.println("Enter quantity of offices");
+        int qtyoffices = in.nextInt();
+
+        switch (qtyoffices) {
+            case 10:
+                qtyofficescoeff = 1;
+                break;
+            case 15:
+                qtyofficescoeff = 2;
+                break;
+            default:
+                qtyofficescoeff = 3;
+        }
+        result = (squarecoeff + qtyofficescoeff) * K2;
+        return result;
+
+    }
+
+
 }
