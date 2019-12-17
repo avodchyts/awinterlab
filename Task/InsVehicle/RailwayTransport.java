@@ -112,6 +112,6 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
 
     @Override
     public void insuranceCoef(int n) {
-        System.out.println("Insurance coefficient for air transport:"+ "" + K6);
+        System.out.println("Insurance coefficient for railway transport:"+ "" + K6);
     }
 }
