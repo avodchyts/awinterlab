@@ -1,8 +1,7 @@
 package com.InsVehicle;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public abstract class Transport {
@@ -38,7 +37,7 @@ public abstract class Transport {
         System.out.println("yearProduce - " + yearProduce);
     }
 
-    public static void VehicleInsurance() {
+    public static void VehicleInsurance() throws IOException {
         ArrayList<String> Values = new ArrayList<>();
         Values.add("airtransport");
         Values.add("landtransport");
@@ -53,30 +52,38 @@ public abstract class Transport {
         try { Values.get(Values.indexOf(typeVehicle));
         }
         catch (Exception e) {
-            System.out.println("Incorrect type of transport selected. Please type from one of the following: ");
+            System.out.println("Incorrect type of transport selected. Please type from one of the following: " + e);
+            e.printStackTrace(System.out);
             for (String i : Values) {
                 System.out.println(i);
             }
         }
-        finally { System.out.println("It can be error");
-
-        }
+       finally {
             switch (typeVehicle) {
-                case "airtransport" :
-                    System.out.println("The cost of insurance for air transport is " + AirTransport.airTransportInsurance()*1000 + "$");
+                case "airtransport":
+                    AirTransport a = new AirTransport();
+                    InsuranceObjects.setProperties(a);
+                    System.out.println("The cost of insurance for air transport is " + a.airTransportInsurance() * 10000 + "$");
                     break;
                 case "landtransport":
-                    System.out.println("The cost of insurance for land vehicle is " + LandTransport.landTransportInsurance()*1000 + "$");
+                    LandTransport b = new LandTransport();
+                    InsuranceObjects.setProperties(b);
+                    System.out.println("The cost of insurance for land vehicle is " + b.landTransportInsurance() * 1000 + "$");
                     break;
                 case "railwaytransport":
-                    System.out.println("The cost of insurance for railway transport is " + RailwayTransport.railwayTransportInsurance()*1000 + "$");
+                    RailwayTransport c = new RailwayTransport();
+                    InsuranceObjects.setProperties(c);
+                    System.out.println("The cost of insurance for railway transport is " + c.railwayTransportInsurance() * 5000 + "$");
                     break;
                 case "watertransport":
-                    System.out.println("The cost of insurance for water transport is" + WaterTransport.waterTransportInsurance()*1000 + "$");
+                    WaterTransport d = new WaterTransport();
+                    InsuranceObjects.setProperties(d);
+                    System.out.println("The cost of insurance for water transport is" + d.waterTransportInsurance() * 2000 + "$");
                     break;
             }
-
+        }
     }
+
 }
 
 

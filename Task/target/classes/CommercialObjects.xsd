@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="commercialRealEstate" type="commercialRealEstateType"/>
+  <xs:complexType name="commercialType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="typeEstate"/>
+      <xs:element name="valueEstate">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="50000"/>
+            <xs:enumeration value="80000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="yearProduce">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value=" 2009"/>
+            <xs:enumeration value=" 2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="square">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1000"/>
+            <xs:enumeration value="10000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="qtyoffices">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="level">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Standart"/>
+            <xs:enumeration value="Luxe"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="commercialsType">
+    <xs:sequence>
+      <xs:element type="commercialType" name="commercial" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="commercialRealEstateType">
+    <xs:sequence>
+      <xs:element type="commercialsType" name="commercials"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

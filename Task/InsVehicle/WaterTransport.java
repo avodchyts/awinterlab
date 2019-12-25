@@ -43,7 +43,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
   public void setLengthBoat(int lengthBoat){this.lengthBoat = lengthBoat;  }
   public void getLengthBoat (){ System.out.println("Length of boat"+ " " + this.lengthBoat);  }
 
-    static int waterTransportInsurance() {
+    public int waterTransportInsurance() {
         int coefwaterVolume = 1;
         int coefpowerEngine = 1;
         int coeflengthBoat = 1;
@@ -54,7 +54,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
         System.out.print("Enter water volume: ");
         int waterVolume = in.nextInt();
 
-        switch (waterVolume) {
+        switch (this.waterVolume) {
             case 10000:
                 coefwaterVolume = 1;
                 break;
@@ -67,7 +67,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
         }
         System.out.print("Enter power engine: ");
         int powerEngine = in.nextInt();
-        switch (powerEngine) {
+        switch (this.powerEngine) {
             case 200:
                 coefpowerEngine = 1;
                 break;
@@ -86,7 +86,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
         System.out.print("Enter length boat: ");
         int lengthBoat = in.nextInt();
 
-        switch (lengthBoat) {
+        switch (this.lengthBoat) {
             case 15:
                 coeflengthBoat = 1;
                 break;
@@ -98,19 +98,17 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
                 coeflengthBoat = 4;
         }
 
-
         result = (coefwaterVolume + coefpowerEngine + coeflengthBoat) * K4;
-
         return result;
     }
 
 
-        @Override
-        public void insuranceCoef ( int n){System.out.println("Insurance coefficient for water transport:"+ "" + K4 ); }
+    @Override
+    public void insuranceCoef ( int n){System.out.println("Insurance coefficient for water transport:"+ "" + K4 ); }
 
     @Override
     public String toString() {
         return ("Water volume" + " " + waterVolume + " " + "Power engine" + " " + powerEngine + " " + "Length boat" + " " + lengthBoat);
     }
 
-    }
+}

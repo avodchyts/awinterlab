@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<landtransport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="D:\InsCompany\src\resources\LandObjects.xsd ">
+    <Trucks>
+        <Truck name="DAF">
+            <typeVehicle>Truck </typeVehicle>
+            <valueVihicle>500</valueVihicle>
+            <yearProduce> 2019</yearProduce>
+            <fullWeight>40</fullWeight>
+            <QtyAxis>3</QtyAxis>
+            <NameCar>DAF</NameCar>
+         </Truck>
+
+        <Truck name="Volvo">
+            <typeVehicle>Truck </typeVehicle>
+            <valueVihicle>700</valueVihicle>
+            <yearProduce> 2019</yearProduce>
+            <fullWeight>60</fullWeight>
+            <QtyAxis>4</QtyAxis>
+            <NameCar>Volvo</NameCar>
+        </Truck>
+
+    </Trucks>
+</landtransport>

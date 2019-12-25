@@ -6,7 +6,7 @@ import static com.InsVehicle.IInsuranceCoeff.K2;
 
 public class CommercialRealEstate extends RealEstate implements IRealEstate {
    private int square;
-  private int qtyoffices;
+   private int qtyoffices;
   @Override
   public void levelRealEstate(int n ){
             if(n<=1000)
@@ -20,21 +20,21 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
   public void levelRealEstate(){
       System.out.println("I use overloading");
   }
-    @Override
+  @Override
     public void own(){System.out.println(toString()+" "+ square + " " +qtyoffices); }
-  public CommercialRealEstate() {}
-     public CommercialRealEstate (String typeEstate, int valueEstate, int yearProduce,int square,int qtyoffices ){
+   public CommercialRealEstate() {}
+   public CommercialRealEstate (String typeEstate, int valueEstate, int yearProduce,int square,int qtyoffices ){
       super(typeEstate,valueEstate,yearProduce);
       this.square= square;
       this.qtyoffices= qtyoffices;
-  }
+   }
 
     public void setSquare(int square){this.square= square; }
     public void getSquare (){ System.out.println("The square"+ "" + this.square); }
 
-  public void setQtyoffices(int qtyoffices){ this.qtyoffices= qtyoffices;  }
-  public void getQtyoffices (){System.out.println("Quantity Offices"+ "" + this.qtyoffices);
-  }
+    public void setQtyoffices(int qtyoffices){ this.qtyoffices= qtyoffices;  }
+    public void getQtyoffices (){System.out.println("Quantity Offices"+ "" + this.qtyoffices);
+    }
   public static int commercialEstateInsurance (){
         int squarecoeff = 1;
         int qtyofficescoeff = 1;
@@ -72,7 +72,6 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
         result = (squarecoeff + qtyofficescoeff) * K2;
         return result;
 
-    }
-
+  }
 
 }

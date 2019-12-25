@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<watertransport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="D:\InsCompany\src\resources\WaterObjects.xsd ">
+    <ships>
+        <ship name="Titanic">
+            <typeVehicle>Ship</typeVehicle>
+            <valueVihicle>100000</valueVihicle>
+            <yearProduce>1909</yearProduce>
+            <waterVolume>52310</waterVolume>
+            <powerEngine>55000</powerEngine>
+            <lengthBoat>269</lengthBoat>
+        </ship>
+
+        <ship name="Dream">
+            <typeVehicle>Ship</typeVehicle>
+            <valueVihicle>10000</valueVihicle>
+            <yearProduce>2009</yearProduce>
+            <waterVolume>5310</waterVolume>
+            <powerEngine>5000</powerEngine>
+            <lengthBoat>29</lengthBoat>
+        </ship>
+
+    </ships>
+</watertransport>

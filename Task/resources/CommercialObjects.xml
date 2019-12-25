@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commercialRealEstate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="D:\InsCompany\src\resources\CommercialObjects.xsd ">
+    <commercials>
+        <commercial name="Plaza">
+            <typeEstate>commercial </typeEstate>
+            <valueEstate>50000</valueEstate>
+            <yearProduce> 2009</yearProduce>
+            <square>1000</square>
+            <qtyoffices>5</qtyoffices>
+            <level>Standart</level>
+        </commercial>
+
+        <commercial name="Royal">
+                    <typeEstate>commercial </typeEstate>
+                    <valueEstate>80000</valueEstate>
+                    <yearProduce> 2000</yearProduce>
+                    <square>10000</square>
+                    <qtyoffices>500</qtyoffices>
+                    <level>Luxe</level>
+                </commercial>
+
+
+    </commercials>
+</commercialRealEstate>

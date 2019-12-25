@@ -1,8 +1,15 @@
 package com.InsHealth;
 
+import com.InsReal.CommercialRealEstate;
+import com.InsReal.OwnRealEstate;
+import com.InsVehicle.InsuranceObjects;
+
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Health {
-    private  String name;
-   private  int age;
+  private  String name;
+  private  int age;
   private String sex;
   private String nationality;
 
@@ -14,17 +21,30 @@ public class Health {
       this.nationality = nationality;
   }
 
-    public void setName(String name) {  this.name = name; }
-    public void getName() { System.out.println("Name - " + this.name); }
+        public void setName(String name) {  this.name = name; }
+        public String getName() { return this.name; }
 
-    public void setAge (int age) {  this.age = age;}
-    public void getAge() {System.out.println("Age -" + this.age); }
+        public void setAge (int age) {  this.age = age;}
+        public int getAge() {return this.age ; }
 
-    public void setSex(String sex) { this.sex = sex; }
-    public void getSex() { System.out.println("Sex - " + this.sex);}
+        public void setSex(String sex) { this.sex = sex; }
+        public String getSex() { return ("Sex - " + this.sex);}
 
-  public void setNationality(String nationality) {this.nationality = nationality;}
-    public void getNationality() {System.out.println("Nationality - " + this.nationality); }
+        public void setNationality(String nationality) {this.nationality = nationality;}
+        public String getNationality() {return ("Nationality - " + this.nationality); }
 
-    public String toString(){return"Name" + " " + name + " " + "Age" + " " + age + " " + "Sex" + " " + sex;}
-}
+        public String toString(){return"Name" + " " + name + " " + "Age" + " " + age + " " + "Sex" + " " + sex;}
+
+    public static void HealthInsurance() throws IOException {
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a type of health: ");
+        String touristHealth = in.nextLine().toLowerCase();
+
+        TouristHealth g = new TouristHealth();
+        InsuranceObjects.setProperties(g);
+        System.out.println("The cost of insurance for commercial estate is " + g.touristHealthInsurance() * 1000 + "$");
+
+    }
+  }
+
