@@ -63,16 +63,16 @@ public abstract class Transport {
         }
             switch (typeVehicle) {
                 case "airtransport" :
-                    System.out.println("The cost of insurance for air transport is " + AirTransport.airTransportInsurance() + "$");
+                    System.out.println("The cost of insurance for air transport is " + AirTransport.airTransportInsurance()*1000 + "$");
                     break;
                 case "landtransport":
-                    System.out.println("The cost of insurance for land vehicle is " + LandTransport.landTransportInsurance() + "$");
+                    System.out.println("The cost of insurance for land vehicle is " + LandTransport.landTransportInsurance()*1000 + "$");
                     break;
                 case "railwaytransport":
-                    System.out.println("The cost of insurance for railway transport is " + RailwayTransport.railwayTransportInsurance() + "$");
+                    System.out.println("The cost of insurance for railway transport is " + RailwayTransport.railwayTransportInsurance()*1000 + "$");
                     break;
                 case "watertransport":
-                    System.out.println("The cost of insurance for water transport is" + WaterTransport.waterTransportInsurance() + "$");
+                    System.out.println("The cost of insurance for water transport is" + WaterTransport.waterTransportInsurance()*1000 + "$");
                     break;
             }
 

@@ -1,7 +1,7 @@
 package com.InsReal;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Scanner;
+import static com.InsVehicle.IInsuranceCoeff.K1;
 
 public class OwnRealEstate extends RealEstate implements IRealEstate {
   private int square;
@@ -42,4 +42,37 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
     public void setQtyRoom(int qtyRoom){ this.qtyRoom= qtyRoom; }
     public void getQtyRoom (){System.out.println("Quantity room"+ " " + this.qtyRoom);          }
 
-}
+    public static int personalEstateInsurance (){
+        int squarecoeff = 1;
+        int qtyRommcoeff =1;
+        int result = 1;
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Enter square : ");
+        int square = in.nextInt();
+        switch (square){
+            case 100:
+                squarecoeff =1;
+                break;
+            case 200:
+                squarecoeff =2;
+                break;
+            default:squarecoeff=3;
+        }
+
+        System.out.println("Enter quantity rooms : ");
+        int qtyRoom = in.nextInt();
+        switch (qtyRoom){
+            case 4:
+                qtyRommcoeff = 1;
+            case 7:
+                qtyRommcoeff =2;
+
+            default:qtyRommcoeff =3;
+        }
+        result = (squarecoeff + qtyRommcoeff)*K1;
+        return result;
+    }
+
+  }

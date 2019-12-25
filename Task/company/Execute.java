@@ -248,7 +248,7 @@ LinkedList<AirTransport> airTransports = new LinkedList<AirTransport>();
         System.out.println();
 
 
-            HashMap<Integer, RealEstate> realEstates = new HashMap<Integer, RealEstate>();
+        HashMap<Integer, RealEstate> realEstates = new HashMap<Integer, RealEstate>();
             realEstates.put(1, house);
             realEstates.put(2, townHouse);
             realEstates.put(3, house);
@@ -257,7 +257,6 @@ LinkedList<AirTransport> airTransports = new LinkedList<AirTransport>();
             realEstates.put(6, house);
           try {  realEstates.containsKey(7);
         } catch (Exception e){System.out.println("Error");}
-
 
         System.out.println();
 
@@ -268,6 +267,8 @@ LinkedList<AirTransport> airTransports = new LinkedList<AirTransport>();
         properties.add(plaza);
         System.out.println(properties);
 
+        System.out.println();
+        RealEstate.RealInsurance();
         System.out.println();
 
         TouristHealth alex = new TouristHealth();

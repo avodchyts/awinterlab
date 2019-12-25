@@ -3,6 +3,7 @@ package com.InsVehicle;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import com.company.Execute;
 
 public class AirTransport extends Transport implements IInsuranceCoeff {
     private int lengthWing;
@@ -32,14 +33,13 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
     public void addAirTransport(AirTransport airTransport){
         airTransports.add(airTransport);
     }
-    public List<AirTransport> getListOfAirTransport(){
-        if (airTransports!= null && !airTransports.isEmpty()) {
-            return airTransports;
-        }else{
-            return null;
-        }
-    }
-
+        public List<AirTransport> getListOfAirTransport(){
+             if (airTransports!= null && !airTransports.isEmpty()) {
+                  return airTransports;
+                    }else{
+                         return null;
+                    }
+             }
 
     public void setLengthWing(int lengthWing) {
         this.lengthWing = lengthWing;
@@ -73,6 +73,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
         System.out.println("Size of volume" + " " + this.sizeVolume);
     }
 
+
     public static int airTransportInsurance() {
         int coeflengthWing = 1;
         int coefTypeEngine = 1;
@@ -81,11 +82,11 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
         int result;
 
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter length of wings: ");
-        int lengthWing = in.nextInt();
 
-        switch (lengthWing) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter length of wings: 30 or 40 or other ");
+        int lengthWing = in.nextInt();
+               switch (lengthWing) {
             case 30:
                 coeflengthWing = 1;
                 break;
@@ -96,14 +97,14 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
                 coeflengthWing = 5;
         }
 
-        System.out.print("Enter Type of Engines: ");
-        String typeEngine = in.next();
-        try {
-            if (!(typeEngine == "reactive") || !(typeEngine == "turboreactive"))
-                throw new Exception("Incorrect type of engine is selected. Please select reactive or turboreactive ");
-        }catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        System.out.print("Enter Type of Engines: reactive or turboreactive ");
+            String typeEngine = in.next();
+            try {
+                if (!(typeEngine == "reactive") || !(typeEngine == "turboreactive"))
+                    throw new Exception("Incorrect type of engine is selected. Please select reactive or turboreactive " );
+                }catch (Exception e) {
+                         System.out.println(e.getMessage());
+                    }
         switch (typeEngine) {
             case "reactive":
                 coefTypeEngine = 1;

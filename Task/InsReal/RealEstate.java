@@ -1,5 +1,7 @@
 package com.InsReal;
 
+import com.InsVehicle.AirTransport;
+
 import java.util.*;
 import java.util.Comparator;
 
@@ -65,6 +67,23 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
     System.out.println("yearProduce" + " " + this.yearProduce);
   }
 
+  public static void RealInsurance() {
+
+    Scanner in = new Scanner(System.in);
+    System.out.println("Enter a type of estate: Commercial or Personal ");
+    String typeEstate = in.nextLine().toLowerCase();
+
+    switch (typeEstate){
+      case "commercial":
+      System.out.println("The cost of insurance for commercial estate is " + CommercialRealEstate.commercialEstateInsurance()*1000 + "$");
+        break;
+      case "personal":
+        System.out.println("The cost of insurance for personal estate is " + OwnRealEstate.personalEstateInsurance()*1000 + "$");
+        break;
+    }
+
+  }
+
   public void own() {
     System.out.println(toString());
   }
@@ -78,10 +97,10 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
   public int compareTo(RealEstate anotherRealEstate) {
     if (this.valueEstate == anotherRealEstate.valueEstate) {
       return 0;
-    } else if (this.valueEstate < anotherRealEstate.valueEstate) {
-      return -1;
-    } else {
-      return 1;
+        } else if (this.valueEstate < anotherRealEstate.valueEstate) {
+         return -1;
+          } else {
+             return 1;
     }
   }
 }
