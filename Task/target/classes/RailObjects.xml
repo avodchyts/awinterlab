@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<railwaytransport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="D:\InsCompany\src\resources\RailObjects.xsd ">
+    <trains>
+        <train name="Cometa">
+            <typeVehicle>train </typeVehicle>
+            <valueVihicle>1500</valueVihicle>
+            <yearProduce> 2010</yearProduce>
+            <typeTrain>Electric</typeTrain>
+            <qtyCarriage>5</qtyCarriage>
+            <maxSpeed>150</maxSpeed>
+        </train>
+
+        <train name="Blue Queen">
+            <typeVehicle>train </typeVehicle>
+            <valueVihicle>10000</valueVihicle>
+            <yearProduce> 1910</yearProduce>
+            <typeTrain>Diesel</typeTrain>
+            <qtyCarriage>6</qtyCarriage>
+            <maxSpeed>120</maxSpeed>
+        </train>
+
+    </trains>
+</railwaytransport>

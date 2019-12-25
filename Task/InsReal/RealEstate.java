@@ -1,7 +1,9 @@
 package com.InsReal;
 
 import com.InsVehicle.AirTransport;
+import com.InsVehicle.InsuranceObjects;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.Comparator;
 
@@ -17,7 +19,7 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
   }
 
   public RealEstate(String typeEstate, int valueEstate, int yearProduce) {
-    this.properties = new PriorityQueue<>();
+    this.properties = new PriorityQueue<RealEstate>();
     this.realEstates = new HashMap<Integer, String>();
     this.typeEstate = typeEstate;
     this.valueEstate = valueEstate;
@@ -30,8 +32,7 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
     return properties;
   }
 
-  public String getProperties() {
-    return getProperties();
+  public String getProperties() {return getProperties();
   }
 
   public Map<Integer, String> addRealEstates(int index, String realEstate) {
@@ -67,7 +68,7 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
     System.out.println("yearProduce" + " " + this.yearProduce);
   }
 
-  public static void RealInsurance() {
+  public static void RealInsurance() throws IOException {
 
     Scanner in = new Scanner(System.in);
     System.out.println("Enter a type of estate: Commercial or Personal ");
@@ -75,10 +76,14 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
 
     switch (typeEstate){
       case "commercial":
-      System.out.println("The cost of insurance for commercial estate is " + CommercialRealEstate.commercialEstateInsurance()*1000 + "$");
+        CommercialRealEstate e = new CommercialRealEstate();
+        InsuranceObjects.setProperties(e);
+      System.out.println("The cost of insurance for commercial estate is " + e.commercialEstateInsurance()*10000 + "$");
         break;
       case "personal":
-        System.out.println("The cost of insurance for personal estate is " + OwnRealEstate.personalEstateInsurance()*1000 + "$");
+        OwnRealEstate f = new OwnRealEstate();
+        InsuranceObjects.setProperties(f);
+        System.out.println("The cost of insurance for personal estate is " + f.personalEstateInsurance()*1000 + "$");
         break;
     }
 

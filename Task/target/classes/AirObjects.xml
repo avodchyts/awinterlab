@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<airtransport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="D:\InsCompany\src\resources\AirObjects.xsd ">
+    <Jets>
+        <Jet name="Boeing">
+            <typeVehicle>Jet </typeVehicle>
+            <valueVihicle>10000</valueVihicle>
+            <yearProduce> 2017</yearProduce>
+            <lengthWunng>30</lengthWunng>
+            <typeEngine>reactive</typeEngine>
+            <QuantityEngine>4</QuantityEngine>
+            <sizeVolume>100</sizeVolume>
+        </Jet>
+        <Jet name="IL">
+            <typeVehicle>Jet </typeVehicle>
+            <valueVihicle>11000</valueVihicle>
+            <yearProduce> 2018</yearProduce>
+            <lengthWunng>40</lengthWunng>
+            <typeEngine>turboreactive</typeEngine>
+            <QuantityEngine>4</QuantityEngine>
+            <sizeVolume>150</sizeVolume>
+        </Jet>
+
+    </Jets>
+</airtransport>

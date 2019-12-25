@@ -7,11 +7,7 @@ public class Owner {
     final void setRealEstate(IRealEstate realEstate) {
         this.realEstate = realEstate;
     }
-
     final IRealEstate getRealEstate() {
         return realEstate;
     }
-
-
-
 }

@@ -64,7 +64,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             System.out.println("Name Car" + " " + nameCar);
         }
 
-        public static int landTransportInsurance () {
+        public int landTransportInsurance () {
             int coeffullWeight = 1;
             int coefqtyAxis = 1;
             int coefnameCar = 1;
@@ -75,7 +75,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             System.out.print("Enter full weight: ");
             int fullWeight = in.nextInt();
 
-            switch (fullWeight) {
+            switch (this.fullWeight) {
                 case 30:
                     coeffullWeight = 1;
                     break;
@@ -91,7 +91,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             }
             System.out.print("Enter quantity axis: ");
             int qtyAxis = in.nextInt();
-            switch (qtyAxis) {
+            switch (this.qtyAxis) {
                 case 2:
                     coefqtyAxis = 1;
                     break;
@@ -109,7 +109,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             System.out.print("Enter name car: ");
             String nameCar = in.next();
 
-            switch (nameCar) {
+            switch (this.nameCar) {
                 case "DAF":
                     coefnameCar = 1;
                     break;

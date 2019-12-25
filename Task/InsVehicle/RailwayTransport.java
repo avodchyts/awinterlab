@@ -48,7 +48,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
         System.out.println("Max speed " + " " + this.maxSpeed);
     }
 
-    public static int railwayTransportInsurance() {
+    public int railwayTransportInsurance() {
         int coeftypeTrain = 1;
         int coefqtyCarriage = 1;
         int coefmaxSpeed = 1;
@@ -60,7 +60,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
         System.out.print("Enter type train: ");
         String typeTrain = in.next();
 
-        switch (typeTrain) {
+        switch (this.typeTrain) {
             case "electric":
                 coeftypeTrain = 1;
                 break;
@@ -72,7 +72,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
         }
         System.out.print("Enter quantity carriages: ");
         int qtyCarriage = in.nextInt();
-        switch (qtyCarriage) {
+        switch (this.qtyCarriage) {
             case 10:
                 coefqtyCarriage = 1;
                 break;
@@ -91,7 +91,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
         System.out.print("Enter max speed: ");
         int maxSpeed = in.nextInt();
 
-        switch (maxSpeed) {
+        switch (this.maxSpeed) {
             case 150:
                 coefmaxSpeed = 1;
                 break;

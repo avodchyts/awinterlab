@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="airtransport" type="airtransportType"/>
+  <xs:complexType name="JetType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="typeVehicle"/>
+      <xs:element name="valueVihicle">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="10000"/>
+            <xs:enumeration value="11000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="yearProduce">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value=" 2017"/>
+            <xs:enumeration value=" 2018"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="lengthWunng">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="30"/>
+            <xs:enumeration value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="typeEngine">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="reactive"/>
+            <xs:enumeration value="turboreactive"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="QuantityEngine"/>
+      <xs:element name="sizeVolume">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="100"/>
+            <xs:enumeration value="150"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="JetsType">
+    <xs:sequence>
+      <xs:element type="JetType" name="Jet" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="airtransportType">
+    <xs:sequence>
+      <xs:element type="JetsType" name="Jets"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

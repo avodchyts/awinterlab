@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="railwaytransport" type="railwaytransportType"/>
+  <xs:complexType name="trainType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="typeVehicle"/>
+      <xs:element name="valueVihicle">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1500"/>
+            <xs:enumeration value="10000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="yearProduce">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value=" 2010"/>
+            <xs:enumeration value=" 1910"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="typeTrain">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Electric"/>
+            <xs:enumeration value="Diesel"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="qtyCarriage">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="maxSpeed">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="150"/>
+            <xs:enumeration value="120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="name" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="trainsType">
+    <xs:sequence>
+      <xs:element type="trainType" name="train" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="railwaytransportType">
+    <xs:sequence>
+      <xs:element type="trainsType" name="trains"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

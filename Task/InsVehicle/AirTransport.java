@@ -1,9 +1,11 @@
 package com.InsVehicle;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-import com.company.Execute;
+import com.company.MyException;
+import com.Scanner.ScannerInput;
 
 public class AirTransport extends Transport implements IInsuranceCoeff {
     private int lengthWing;
@@ -33,24 +35,24 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
     public void addAirTransport(AirTransport airTransport){
         airTransports.add(airTransport);
     }
-        public List<AirTransport> getListOfAirTransport(){
-             if (airTransports!= null && !airTransports.isEmpty()) {
-                  return airTransports;
-                    }else{
-                         return null;
-                    }
-             }
+
+    public List<AirTransport> getListOfAirTransport(){
+        if (airTransports!= null && !airTransports.isEmpty()) {
+          return airTransports;
+        }
+        else {return null;}
+    }
 
     public void setLengthWing(int lengthWing) {
-        this.lengthWing = lengthWing;
+       this.lengthWing = lengthWing;
     }
 
     public void getLengthWing() {
-        System.out.println("The length of wings" + " " + this.lengthWing);
+       System.out.println("The length of wings" + " " + this.lengthWing);
     }
 
     public void setTypeEngine(String typeEngine) {
-        this.typeEngine = typeEngine;
+       this.typeEngine = typeEngine;
     }
 
     public void getTypeEngine() {
@@ -74,38 +76,25 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
     }
 
 
-    public static int airTransportInsurance() {
-        int coeflengthWing = 1;
-        int coefTypeEngine = 1;
-        int coefQtyEngine = 1;
-        int coefSizeVolume = 1;
+    public int airTransportInsurance() {
+        int coefLengthWing;
+        int coefTypeEngine;
+        int coefQtyEngine;
+        int coefSizeVolume;
         int result;
 
-
-
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter length of wings: 30 or 40 or other ");
-        int lengthWing = in.nextInt();
-               switch (lengthWing) {
+        switch (this.lengthWing) {
             case 30:
-                coeflengthWing = 1;
+                coefLengthWing = 1;
                 break;
             case 40:
-                coeflengthWing = 2;
+                coefLengthWing = 2;
                 break;
             default:
-                coeflengthWing = 5;
+                coefLengthWing = 5;
         }
 
-        System.out.print("Enter Type of Engines: reactive or turboreactive ");
-            String typeEngine = in.next();
-            try {
-                if (!(typeEngine == "reactive") || !(typeEngine == "turboreactive"))
-                    throw new Exception("Incorrect type of engine is selected. Please select reactive or turboreactive " );
-                }catch (Exception e) {
-                         System.out.println(e.getMessage());
-                    }
-        switch (typeEngine) {
+        switch (this.typeEngine) {
             case "reactive":
                 coefTypeEngine = 1;
                 break;
@@ -116,26 +105,18 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
                 coefTypeEngine = 3;
         }
 
-        System.out.print("Enter quantity of engines: ");
-        int qtyEngine = in.nextInt();
-
-        switch (qtyEngine) {
+        switch (this.qtyEngine) {
             case 2:
                 coefQtyEngine = 1;
                 break;
             case 4:
                 coefQtyEngine = 2;
                 break;
-
             default:
                 coefQtyEngine = 4;
-                ;
         }
 
-        System.out.print("Enter Size Volume: ");
-        int sizeVolume = in.nextInt();
-
-        switch (sizeVolume) {
+        switch (this.sizeVolume) {
             case 100:
                 coefSizeVolume = 1;
                 break;
@@ -145,7 +126,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
             default:
                 coefSizeVolume = 3;
         }
-        result = (coeflengthWing + coefTypeEngine + coefQtyEngine + coefSizeVolume) * K5;
+        result = (coefLengthWing + coefTypeEngine + coefQtyEngine + coefSizeVolume) * K5;
         return result;
     }
 
@@ -158,4 +139,6 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
     public String toString() {
         return ("Length of wing" + " " + lengthWing + " " + "Type of engine" + " " + typeEngine + " " + "Quantity of engines" + " " + qtyEngine + " " + "Volume size"+ " " + sizeVolume);
     }
+
 }
+
