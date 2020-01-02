@@ -4,10 +4,16 @@ import com.InsHealth.TouristHealth;
 import com.Scanner.ScannerInput;
 import com.company.MyException;
 import java.io.IOException;
+import org.apache.log4j.Logger;
+
+
+
 import com.InsReal.*;
+
 
 public class InsuranceObjects {
 
+    private static Logger logger = Logger.getLogger(InsuranceObjects.class);
     public static AirTransport setProperties(AirTransport airTransport) throws IOException {
         ScannerInput scannerInput = new ScannerInput();
         System.out.println("Enter length of wings: ");
@@ -15,21 +21,25 @@ public class InsuranceObjects {
         airTransport.setLengthWing(lengthWings);
 
         System.out.println("Enter type of engine reactive or turboreactive: ");
-        String typeEngine = scannerInput.strInput();
+          String typeEngine = scannerInput.strInput();
+
         try {
             if (!(typeEngine == "reactive") || !(typeEngine == "turboreactive"));
             throw new MyException("Incorrect type of engine is selected. Please select reactive or turboreactive " );
         }
         catch (MyException e) {
             e.printStackTrace(System.out);
+            logger.error( "Try catch"+ " " + e);
         }
         airTransport.setTypeEngine(typeEngine);
 
         System.out.println("Enter quantity of engine: ");
+
         int qtyEngine = scannerInput.intInput();
         airTransport.setQtyEngine(qtyEngine);
 
         System.out.println("Enter size of volume: ");
+
         int sizeVolume = scannerInput.intInput();
         airTransport.setSizeVolume(sizeVolume);
 

@@ -1,10 +1,13 @@
 package com.InsHealth;
 
+import org.apache.log4j.Logger;
+
 import static com.InsVehicle.IInsuranceCoeff.K7;
 
 public class TouristHealth extends Health {
   private String country;
   private int qtyDay;
+  private static Logger logger = Logger.getLogger(TouristHealth.class);
 
     public TouristHealth() {}
     public  TouristHealth (String name, int age, String sex, String nationality, String country, int qtyDay ){
@@ -26,7 +29,7 @@ public class TouristHealth extends Health {
         int coeffCountry;
         int coeffQtyDay;
         int result;
-
+        logger.debug("Country" + this.country);
         switch (this.country) {
             case "Thailand":
                 coeffCountry = 1;
@@ -37,7 +40,7 @@ public class TouristHealth extends Health {
             default:
                 coeffCountry= 5;
         }
-
+         logger.debug("Quantity days"+ " "+ this.qtyDay);
         switch (this.qtyDay) {
             case 5:
                 coeffQtyDay = 1;
@@ -51,7 +54,8 @@ public class TouristHealth extends Health {
                 coeffQtyDay = 4;
         }
 
-        result = (coeffCountry + coeffQtyDay) * K7;
+        result = (coeffCountry + coeffQtyDay)*1000 * K7;
+        logger.debug("Result" +" "+result);
         return result;
     }
 }

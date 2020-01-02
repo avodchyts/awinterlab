@@ -2,6 +2,7 @@ package com.InsReal;
 
 import com.InsVehicle.AirTransport;
 import com.InsVehicle.InsuranceObjects;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.*;
@@ -13,6 +14,7 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
   private int yearProduce;
   private Map<Integer, String> realEstates = new HashMap<Integer, String>();
   private Queue<RealEstate> properties = new PriorityQueue<RealEstate>();
+  private static Logger logger = Logger.getLogger(RealEstate.class);
 
 
   public RealEstate() {
@@ -72,18 +74,18 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
 
     Scanner in = new Scanner(System.in);
     System.out.println("Enter a type of estate: Commercial or Personal ");
-    String typeEstate = in.nextLine().toLowerCase();
-
+     String typeEstate = in.nextLine().toLowerCase();
+    logger.error("Type of estate" + " "+ typeEstate);
     switch (typeEstate){
       case "commercial":
         CommercialRealEstate e = new CommercialRealEstate();
         InsuranceObjects.setProperties(e);
-      System.out.println("The cost of insurance for commercial estate is " + e.commercialEstateInsurance()*10000 + "$");
+      System.out.println("The cost of insurance for commercial estate is " + e.commercialEstateInsurance() + "$");
         break;
       case "personal":
         OwnRealEstate f = new OwnRealEstate();
         InsuranceObjects.setProperties(f);
-        System.out.println("The cost of insurance for personal estate is " + f.personalEstateInsurance()*1000 + "$");
+        System.out.println("The cost of insurance for personal estate is " + f.personalEstateInsurance() + "$");
         break;
     }
 

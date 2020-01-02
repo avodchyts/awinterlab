@@ -1,5 +1,7 @@
 package com.InsVehicle;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +11,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
     private int qtyAxis;
     private String nameCar;
     private ArrayList<LandTransport> landTransports = new ArrayList<LandTransport>();
-
+    private static Logger logger = Logger.getLogger(LandTransport.class);
     @Override
     public void Vehicle(String typeVehicle, int valueVehicle, int yearProduce) {
         this.typeVehicle = typeVehicle;
@@ -69,7 +71,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             int coefqtyAxis = 1;
             int coefnameCar = 1;
             int result = 1;
-
+         logger.debug("fullWeight" + "" + this.fullWeight);
 
             Scanner in = new Scanner(System.in);
             System.out.print("Enter full weight: ");
@@ -89,6 +91,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
                     coeffullWeight = 4;
 
             }
+            logger.debug("Quamtity axis"+ " "+ this.qtyAxis);
             System.out.print("Enter quantity axis: ");
             int qtyAxis = in.nextInt();
             switch (this.qtyAxis) {
@@ -105,7 +108,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
                     coeffullWeight = 4;
 
             }
-
+            logger.debug("Name car" +" "+ this.nameCar);
             System.out.print("Enter name car: ");
             String nameCar = in.next();
 
@@ -122,7 +125,8 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             }
 
 
-            result = (coeffullWeight + coefqtyAxis + coefnameCar) * K3;
+            result = (coeffullWeight + coefqtyAxis + coefnameCar) *1000 * K3;
+            logger.debug("Result"+ " "+ result);
             return result;
 
         }

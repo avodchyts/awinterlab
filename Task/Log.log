@@ -1,0 +1,66 @@
+2019-12-31 11:08:40 DEBUG InsuranceObjects:25 - Don't work
+2019-12-31 11:08:40 DEBUG InsuranceObjects:31 - Firstjava.lang.Exception: Incorrect type of engine is selected. Please select reactive or turboreactive 
+2019-12-31 15:56:04 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2019-12-31 15:56:40 DEBUG InsuranceObjects:25 - Don't work
+2019-12-31 15:56:40 DEBUG InsuranceObjects:31 - Firstjava.lang.Exception: Incorrect type of engine is selected. Please select reactive or turboreactive 
+2019-12-31 16:12:06 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2019-12-31 16:12:52 DEBUG InsuranceObjects:25 - Don't work
+2019-12-31 16:12:52 DEBUG InsuranceObjects:31 - Firstjava.lang.Exception: Incorrect type of engine is selected. Please select reactive or turboreactive 
+2019-12-31 16:12:57 DEBUG AirTransport:87 - lengWing 30
+2019-12-31 16:12:57 DEBUG AirTransport:98 - typeEngine reactive
+2019-12-31 16:12:57 DEBUG AirTransport:109 - Quantity 4
+2019-12-31 16:18:19 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2019-12-31 16:19:06 DEBUG InsuranceObjects:25 - Don't work
+2019-12-31 16:19:06 DEBUG InsuranceObjects:31 - Firstjava.lang.Exception: Incorrect type of engine is selected. Please select reactive or turboreactive 
+2019-12-31 16:19:16 DEBUG AirTransport:87 - lengWing 40
+2019-12-31 16:19:16 DEBUG AirTransport:98 - typeEngine turboreactive
+2019-12-31 16:19:16 DEBUG AirTransport:109 - Quantity 4
+2019-12-31 16:32:42 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2019-12-31 16:33:34 DEBUG InsuranceObjects:24 -  type of engine 
+2019-12-31 16:33:41 ERROR InsuranceObjects:33 - Try catch com.company.MyException
+2019-12-31 16:33:41 DEBUG InsuranceObjects:38 -  Quantity of engine 
+2019-12-31 16:34:26 DEBUG InsuranceObjects:43 -  size of volume 
+2019-12-31 16:34:30 DEBUG AirTransport:87 - lengWing 30
+2019-12-31 16:34:30 DEBUG AirTransport:98 - typeEngine turbo
+2019-12-31 16:34:30 DEBUG AirTransport:109 - Quantity 4
+2019-12-31 17:35:22 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2019-12-31 17:35:57 DEBUG InsuranceObjects:24 -  type of engine 
+2019-12-31 17:36:05 ERROR InsuranceObjects:33 - Try catch com.company.MyException
+2019-12-31 17:36:05 DEBUG InsuranceObjects:38 -  Quantity of engine 
+2019-12-31 17:36:10 DEBUG InsuranceObjects:43 -  size of volume 
+2019-12-31 17:36:19 DEBUG AirTransport:87 - lengWing 30
+2019-12-31 17:36:19 DEBUG AirTransport:98 - type engine reactive
+2019-12-31 17:36:19 DEBUG AirTransport:109 - Quantity of engine 4
+2019-12-31 17:36:19 DEBUG AirTransport:120 - size of volume 200
+2019-12-31 17:36:19 DEBUG AirTransport:131 - result1
+2019-12-31 17:38:21 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2019-12-31 17:39:01 DEBUG InsuranceObjects:24 -  type of engine 
+2019-12-31 17:39:06 ERROR InsuranceObjects:33 - Try catch com.company.MyException
+2019-12-31 17:39:06 DEBUG InsuranceObjects:38 -  Quantity of engine 
+2019-12-31 17:39:09 DEBUG InsuranceObjects:43 -  size of volume 
+2019-12-31 17:39:11 DEBUG AirTransport:87 - lengWing 20
+2019-12-31 17:39:11 DEBUG AirTransport:98 - type engine reactive
+2019-12-31 17:39:11 DEBUG AirTransport:109 - Quantity of engine 4
+2019-12-31 17:39:11 DEBUG AirTransport:120 - size of volume 200
+2019-12-31 17:39:11 DEBUG AirTransport:132 - result50
+2020-01-01 09:56:45 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2020-01-01 09:57:12 ERROR InsuranceObjects:32 - Try catch com.company.MyException
+2020-01-01 09:57:23 DEBUG AirTransport:87 - lengWing 30
+2020-01-01 09:57:23 DEBUG AirTransport:98 - type engine pistons
+2020-01-01 09:57:23 DEBUG AirTransport:109 - Quantity of engine 4
+2020-01-01 09:57:23 DEBUG AirTransport:120 - size of volume 200
+2020-01-01 09:57:23 DEBUG AirTransport:132 - result400000
+2020-01-01 10:44:11 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2020-01-01 10:44:26 DEBUG Transport:67 - Type vehicle airtransport
+2020-01-01 10:44:40 ERROR InsuranceObjects:32 - Try catch com.company.MyException
+2020-01-01 10:44:46 DEBUG AirTransport:87 - lengWing 30
+2020-01-01 10:44:46 DEBUG AirTransport:98 - type engine turboreactive
+2020-01-01 10:44:46 DEBUG AirTransport:109 - Quantity of engine 4
+2020-01-01 10:44:46 DEBUG AirTransport:120 - size of volume 100
+2020-01-01 10:44:46 DEBUG AirTransport:132 - Result 300000
+2020-01-01 11:47:29 ERROR Calculation:20 - I am looking for errors[Transport, RealEstate, Health]
+2020-01-01 11:47:41 ERROR RealEstate:74 - Type of estate null
+2020-01-02 19:28:27 INFO  Calculation:26 - I am looking for errors[Transport, RealEstate, Health]
+2020-01-02 19:32:49 INFO  Calculation:26 - I am looking for errors[Transport, RealEstate, Health]
+2020-01-02 19:49:29 INFO  Calculation:26 - I am looking for errors[Transport, RealEstate, Health]
+2020-01-02 19:50:03 DEBUG Transport:79 - Type vehicle air
