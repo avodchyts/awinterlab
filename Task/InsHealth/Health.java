@@ -3,15 +3,18 @@ package com.InsHealth;
 import com.InsReal.CommercialRealEstate;
 import com.InsReal.OwnRealEstate;
 import com.InsVehicle.InsuranceObjects;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.util.Scanner;
+
 
 public class Health {
   private  String name;
   private  int age;
   private String sex;
   private String nationality;
+  private static Logger logger = Logger.getLogger(Health.class);
 
   public Health() { }
   public Health(String name, int age, String sex, String nationality) {
@@ -39,11 +42,12 @@ public class Health {
 
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a type of health: ");
+        logger.debug("Type of health");
         String touristHealth = in.nextLine().toLowerCase();
 
         TouristHealth g = new TouristHealth();
         InsuranceObjects.setProperties(g);
-        System.out.println("The cost of insurance for commercial estate is " + g.touristHealthInsurance() * 1000 + "$");
+        System.out.println("The cost of insurance for commercial estate is " + g.touristHealthInsurance()  + "$");
 
     }
   }

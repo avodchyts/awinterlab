@@ -1,5 +1,7 @@
 package com.InsReal;
 
+import org.apache.log4j.Logger;
+
 import java.util.Scanner;
 import static com.InsVehicle.IInsuranceCoeff.K1;
 
@@ -7,7 +9,7 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
   private int square;
   private int qtyRoom;
   IRealEstate level;
-
+  private static Logger logger = Logger.getLogger(OwnRealEstate.class);
 
     @Override
     public void levelRealEstate( int n ){
@@ -46,6 +48,7 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
         int result;
 
         Scanner in = new Scanner(System.in);
+        logger.error("Square" + " "+ this.square);
         System.out.println("Enter square : ");
         int square = in.nextInt();
         switch (this.square){
@@ -57,7 +60,7 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
                 break;
             default:squarecoeff=3;
         }
-
+        logger.error("Quantity rooms" +" "+ this.qtyRoom);
         System.out.println("Enter quantity rooms : ");
         int qtyRoom = in.nextInt();
         switch (this.qtyRoom){
@@ -68,7 +71,8 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
 
             default:qtyRommcoeff =3;
         }
-        result = (squarecoeff + qtyRommcoeff)*K1;
+        result = (squarecoeff + qtyRommcoeff)*1000*K1;
+        logger.error("Result"+ " "+result);
         return result;
     }
 

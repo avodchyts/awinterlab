@@ -1,12 +1,16 @@
 package com.InsReal;
 
+import org.apache.log4j.Logger;
+
 import java.util.Scanner;
+
 
 import static com.InsVehicle.IInsuranceCoeff.K2;
 
 public class CommercialRealEstate extends RealEstate implements IRealEstate {
    private int square;
    private int qtyoffices;
+   private static Logger logger= Logger.getLogger(CommercialRealEstate.class);
   @Override
   public void levelRealEstate(int n ){
             if(n<=1000)
@@ -35,13 +39,13 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
     public void setQtyoffices(int qtyoffices){ this.qtyoffices= qtyoffices;  }
     public void getQtyoffices (){System.out.println("Quantity Offices"+ "" + this.qtyoffices);
     }
-  public static int commercialEstateInsurance (){
+  public  int commercialEstateInsurance (){
         int squarecoeff = 1;
         int qtyofficescoeff = 1;
         int result =1;
 
         Scanner in = new Scanner(System.in);
-
+        logger.error("Square" + " "+this.square);
         System.out.println("Enter square : ");
         int square = in.nextInt();
 
@@ -56,6 +60,7 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
                 squarecoeff = 3;
         }
 
+       logger.error("Quantity of offices" + " "+ this.qtyoffices);
         System.out.println("Enter quantity of offices");
         int qtyoffices = in.nextInt();
 
@@ -69,7 +74,8 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
             default:
                 qtyofficescoeff = 3;
         }
-        result = (squarecoeff + qtyofficescoeff) * K2;
+        result = (squarecoeff + qtyofficescoeff) *10000* K2;
+        logger.error("Result" +" "+ result);
         return result;
 
   }
