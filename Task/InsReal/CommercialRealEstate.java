@@ -10,7 +10,7 @@ import static com.InsVehicle.IInsuranceCoeff.K2;
 public class CommercialRealEstate extends RealEstate implements IRealEstate {
    private int square;
    private int qtyoffices;
-   private static Logger logger= Logger.getLogger(CommercialRealEstate.class);
+   private static final Logger LOGGER= Logger.getLogger(CommercialRealEstate.class);
   @Override
   public void levelRealEstate(int n ){
             if(n<=1000)
@@ -44,12 +44,8 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
         int qtyofficescoeff = 1;
         int result =1;
 
-        Scanner in = new Scanner(System.in);
-        logger.error("Square" + " "+this.square);
-        System.out.println("Enter square : ");
-        int square = in.nextInt();
-
-        switch (square) {
+        LOGGER.error("Square" + " "+this.square);
+         switch (square) {
             case 500:
                 squarecoeff = 1;
                 break;
@@ -60,11 +56,8 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
                 squarecoeff = 3;
         }
 
-       logger.error("Quantity of offices" + " "+ this.qtyoffices);
-        System.out.println("Enter quantity of offices");
-        int qtyoffices = in.nextInt();
-
-        switch (qtyoffices) {
+       LOGGER.error("Quantity of offices" + " "+ this.qtyoffices);
+         switch (qtyoffices) {
             case 10:
                 qtyofficescoeff = 1;
                 break;
@@ -75,7 +68,7 @@ public class CommercialRealEstate extends RealEstate implements IRealEstate {
                 qtyofficescoeff = 3;
         }
         result = (squarecoeff + qtyofficescoeff) *10000* K2;
-        logger.error("Result" +" "+ result);
+        LOGGER.error("Result" +" "+ result);
         return result;
 
   }

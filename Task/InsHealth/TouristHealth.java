@@ -7,7 +7,7 @@ import static com.InsVehicle.IInsuranceCoeff.K7;
 public class TouristHealth extends Health {
   private String country;
   private int qtyDay;
-  private static Logger logger = Logger.getLogger(TouristHealth.class);
+  private static final Logger logger = Logger.getLogger(TouristHealth.class);
 
     public TouristHealth() {}
     public  TouristHealth (String name, int age, String sex, String nationality, String country, int qtyDay ){

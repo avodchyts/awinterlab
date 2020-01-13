@@ -7,7 +7,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
     private String typeTrain;
     private int qtyCarriage;
     private int maxSpeed;
-    private static Logger logger = Logger.getLogger(RailwayTransport.class);
+    private static final Logger LOGGER = Logger.getLogger(RailwayTransport.class);
 
 
     @Override
@@ -57,10 +57,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
         int result;
 
 
-        logger.debug("Type of train" + " "+this.typeTrain);
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter type train: ");
-        String typeTrain = in.next();
+        LOGGER.debug("Type of train" + " "+this.typeTrain);
 
         switch (this.typeTrain) {
             case "electric":
@@ -72,9 +69,9 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
             default:coeftypeTrain = 3;
 
         }
-        logger.debug("Quantity carriages" + " "+ this.qtyCarriage);
-        System.out.print("Enter quantity carriages: ");
-        int qtyCarriage = in.nextInt();
+        LOGGER.debug("Quantity carriages" + " "+ this.qtyCarriage);
+
+
         switch (this.qtyCarriage) {
             case 10:
                 coefqtyCarriage = 1;
@@ -90,9 +87,8 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
                 coefqtyCarriage = 4;
 
         }
-        logger.debug("Max speed" + " "+ this.maxSpeed);
-        System.out.print("Enter max speed: ");
-        int maxSpeed = in.nextInt();
+        LOGGER.debug("Max speed" + " "+ this.maxSpeed);
+
 
         switch (this.maxSpeed) {
             case 150:
@@ -107,7 +103,7 @@ public class RailwayTransport extends Transport implements IInsuranceCoeff {
 
 
         result = ( coeftypeTrain + coefqtyCarriage + coefmaxSpeed)*1000 * K6;
-        logger.debug("Result" + " "+ result);
+        LOGGER.debug("Result" + " "+ result);
         return result;
     }
 

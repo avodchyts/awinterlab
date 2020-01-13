@@ -1,7 +1,9 @@
 package com.InsReal;
 
+import com.Scanner.ScannerInput;
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
 import java.util.Scanner;
 import static com.InsVehicle.IInsuranceCoeff.K1;
 
@@ -9,7 +11,7 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
   private int square;
   private int qtyRoom;
   IRealEstate level;
-  private static Logger logger = Logger.getLogger(OwnRealEstate.class);
+  private static final Logger LOGGER = Logger.getLogger(OwnRealEstate.class);
 
     @Override
     public void levelRealEstate( int n ){
@@ -42,15 +44,14 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
         public void setQtyRoom(int qtyRoom){ this.qtyRoom= qtyRoom; }
         public void getQtyRoom (){System.out.println("Quantity room"+ " " + this.qtyRoom);          }
 
-    public  int personalEstateInsurance (){
+    public  int personalEstateInsurance () throws IOException {
         int squarecoeff;
         int qtyRommcoeff;
         int result;
 
-        Scanner in = new Scanner(System.in);
-        logger.error("Square" + " "+ this.square);
-        System.out.println("Enter square : ");
-        int square = in.nextInt();
+
+        LOGGER.error("Square" + " "+ this.square);
+
         switch (this.square){
             case 100:
                 squarecoeff =1;
@@ -60,9 +61,8 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
                 break;
             default:squarecoeff=3;
         }
-        logger.error("Quantity rooms" +" "+ this.qtyRoom);
-        System.out.println("Enter quantity rooms : ");
-        int qtyRoom = in.nextInt();
+        LOGGER.error("Quantity rooms" +" "+ this.qtyRoom);
+
         switch (this.qtyRoom){
             case 4:
                 qtyRommcoeff = 1;
@@ -72,7 +72,7 @@ public class OwnRealEstate extends RealEstate implements IRealEstate {
             default:qtyRommcoeff =3;
         }
         result = (squarecoeff + qtyRommcoeff)*1000*K1;
-        logger.error("Result"+ " "+result);
+        LOGGER.error("Result"+ " "+result);
         return result;
     }
 

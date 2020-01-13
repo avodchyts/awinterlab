@@ -2,6 +2,7 @@ package com.InsReal;
 
 import com.InsVehicle.AirTransport;
 import com.InsVehicle.InsuranceObjects;
+import com.Scanner.ScannerInput;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
   private int yearProduce;
   private Map<Integer, String> realEstates = new HashMap<Integer, String>();
   private Queue<RealEstate> properties = new PriorityQueue<RealEstate>();
-  private static Logger logger = Logger.getLogger(RealEstate.class);
+  private static final Logger LOGGER = Logger.getLogger(RealEstate.class);
 
 
   public RealEstate() {
@@ -72,10 +73,10 @@ public class RealEstate<realEstate> implements Comparable<RealEstate> {
 
   public static void RealInsurance() throws IOException {
 
-    Scanner in = new Scanner(System.in);
+    ScannerInput inReal = new ScannerInput();
     System.out.println("Enter a type of estate: Commercial or Personal ");
-     String typeEstate = in.nextLine().toLowerCase();
-    logger.error("Type of estate" + " "+ typeEstate);
+     String typeEstate = inReal.strInput().toLowerCase();
+    LOGGER.error("Type of estate" + " "+ typeEstate);
     switch (typeEstate){
       case "commercial":
         CommercialRealEstate e = new CommercialRealEstate();

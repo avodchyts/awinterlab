@@ -13,7 +13,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
     private int powerEngine;
     private int lengthBoat;
     private Set<WaterTransport> waterTransports = new HashSet<WaterTransport>();
-    private static Logger logger = Logger.getLogger(WaterTransport.class);
+    private static final Logger LOGGER = Logger.getLogger(WaterTransport.class);
 
     @Override
     public void Vehicle (String typeVehicle, int valueVehicle, int yearProduce ){
@@ -52,10 +52,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
         int coeflengthBoat = 1;
         int result;
 
-        logger.debug("Water volume" + " "+ this.waterVolume);
-        Scanner in = new Scanner(System.in);
-        System.out.print("Enter water volume: ");
-        int waterVolume = in.nextInt();
+        LOGGER.debug("Water volume" + " "+ this.waterVolume);
 
         switch (this.waterVolume) {
             case 10000:
@@ -68,10 +65,8 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
                 coefwaterVolume = 0;
 
         }
-        logger.debug("Power engine" + " "+this.powerEngine);
-        System.out.print("Enter power engine: ");
-        int powerEngine = in.nextInt();
-        switch (this.powerEngine) {
+        LOGGER.debug("Power engine" + " "+this.powerEngine);
+          switch (this.powerEngine) {
             case 200:
                 coefpowerEngine = 1;
                 break;
@@ -86,10 +81,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
                 System.out.println(0);
 
         }
-        logger.debug("Lenth of boat" + " "+this.lengthBoat);
-        System.out.print("Enter length boat: ");
-        int lengthBoat = in.nextInt();
-
+        LOGGER.debug("Lenth of boat" + " "+this.lengthBoat);
         switch (this.lengthBoat) {
             case 15:
                 coeflengthBoat = 1;
@@ -103,7 +95,7 @@ public class WaterTransport extends Transport implements IInsuranceCoeff {
         }
 
         result = (coefwaterVolume + coefpowerEngine + coeflengthBoat)*2000 * K4;
-        logger.debug("Result" + " "+ result);
+        LOGGER.debug("Result" + " "+ result);
         return result;
     }
 

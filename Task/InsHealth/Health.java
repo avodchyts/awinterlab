@@ -3,6 +3,7 @@ package com.InsHealth;
 import com.InsReal.CommercialRealEstate;
 import com.InsReal.OwnRealEstate;
 import com.InsVehicle.InsuranceObjects;
+import com.Scanner.ScannerInput;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class Health {
   private  int age;
   private String sex;
   private String nationality;
-  private static Logger logger = Logger.getLogger(Health.class);
+  private static final Logger LOGGER = Logger.getLogger(Health.class);
 
   public Health() { }
   public Health(String name, int age, String sex, String nationality) {
@@ -40,10 +41,10 @@ public class Health {
 
     public static void HealthInsurance() throws IOException {
 
-        Scanner in = new Scanner(System.in);
+        ScannerInput inHealth = new ScannerInput();
         System.out.println("Enter a type of health: ");
-        logger.debug("Type of health");
-        String touristHealth = in.nextLine().toLowerCase();
+        LOGGER.debug("Type of health");
+        String touristHealth = inHealth.strInput().toLowerCase();
 
         TouristHealth g = new TouristHealth();
         InsuranceObjects.setProperties(g);
