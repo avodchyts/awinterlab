@@ -1,19 +1,24 @@
 package com.InsVehicle;
 
+import com.Scanner.ScannerInput;
 import org.apache.log4j.Logger;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
 import java.util.Properties;
 import java.util.Scanner;
+
+import com.Parser.FileParser;
+
 
 public abstract class Transport {
 
     protected String typeVehicle;
     protected int valueVehicle;
     protected int yearProduce;
-    private static Logger logger = Logger.getLogger(Transport.class);
+    private static final Logger LOGGER = Logger.getLogger(Transport.class);
+    public static FileInputStream getFileInputStream (File file) throws FileNotFoundException{
+        return new FileInputStream(file);
+    }
 
     public abstract void Vehicle(String typeVehicle, int valueVehicle, int yearProduce);
 
@@ -42,58 +47,56 @@ public abstract class Transport {
     }
 
     public static void VehicleInsurance() throws IOException {
+        try {
+            FileInputStream file = new FileInputStream("C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/data.properties");
+            Properties properties = new Properties();
+            properties.load(file);
 
-        Properties properties = new Properties();
-        properties.load(new FileReader("C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/data.properties"));
+            ScannerInput in = new ScannerInput();
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter a type of transport: ");
-        for(String key:properties.stringPropertyNames()){
-         System.out.println(properties.get(key));
-
-        }
-
-        String typeVehicle = in.nextLine().toLowerCase();
-       try {properties.load(new FileReader("C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/data.properties"));
-       }
-
-        catch (Exception e) {
-            System.out.println("Incorrect type of transport selected. Please type from one of the following: " + e);
-            e.printStackTrace(System.out);
-            logger.error("Try catch" + " " + e);
-
-             for (String key : properties.stringPropertyNames()) {
+            System.out.println("Enter a type of transport: ");
+          for (String key : properties.stringPropertyNames()) {
                 System.out.println(properties.get(key));
             }
-        }
 
-        finally {
-            logger.debug("Type vehicle" + " "+ typeVehicle);
-            switch (typeVehicle) {
-                case "airtransport":
-                    AirTransport a = new AirTransport();
-                    InsuranceObjects.setProperties(a);
-                    System.out.println("The cost of insurance for air transport is " + a.airTransportInsurance()  + "$");
-                    break;
-                case "landtransport":
-                    LandTransport b = new LandTransport();
-                    InsuranceObjects.setProperties(b);
-                    System.out.println("The cost of insurance for land vehicle is " + b.landTransportInsurance()  + "$");
-                    break;
-                case "railwaytransport":
-                    RailwayTransport c = new RailwayTransport();
-                    InsuranceObjects.setProperties(c);
-                    System.out.println("The cost of insurance for railway transport is " + c.railwayTransportInsurance() + "$");
-                    break;
-                case "watertransport":
-                    WaterTransport d = new WaterTransport();
-                    InsuranceObjects.setProperties(d);
-                    System.out.println("The cost of insurance for water transport is" + d.waterTransportInsurance()  + "$");
-                    break;
+            String typeVehicle = in.strInput().toLowerCase();
+            try {
+                properties.load(new FileInputStream("C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/data.properties"));
+            } catch (IOException e) {
+                System.out.println("Incorrect type of transport selected. Please type from one of the following: " + e);
+                e.printStackTrace(System.out);
+                LOGGER.error("Try catch" + " " + e);
+
+              } finally {
+                LOGGER.debug("Type vehicle" + " " + typeVehicle);
+                switch (typeVehicle) {
+                    case "airtransport":
+                        AirTransport airTransport = new AirTransport();
+                        InsuranceObjects.setProperties(airTransport);
+                        System.out.println("The cost of insurance for air transport is " + airTransport.airTransportInsurance() + "$");
+                        break;
+                    case "landtransport":
+                        LandTransport landTransport = new LandTransport();
+                        InsuranceObjects.setProperties(landTransport);
+                        System.out.println("The cost of insurance for land vehicle is " + landTransport.landTransportInsurance() + "$");
+                        break;
+                    case "railwaytransport":
+                        RailwayTransport railwayTransport = new RailwayTransport();
+                        InsuranceObjects.setProperties(railwayTransport);
+                        System.out.println("The cost of insurance for railway transport is " + railwayTransport.railwayTransportInsurance() + "$");
+                        break;
+                    case "watertransport":
+                        WaterTransport waterTransport = new WaterTransport();
+                        InsuranceObjects.setProperties(waterTransport);
+                        System.out.println("The cost of insurance for water transport is" + waterTransport.waterTransportInsurance() + "$");
+                        break;
+                }
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            LOGGER.error(ex);
         }
     }
-
 }
 
 

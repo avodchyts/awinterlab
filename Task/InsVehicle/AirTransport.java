@@ -14,7 +14,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
     private int qtyEngine;
     private int sizeVolume;
     private LinkedList<AirTransport> airTransports = new LinkedList<AirTransport>();
-    private static Logger logger = Logger.getLogger(AirTransport.class);
+    private static final Logger LOGGER = Logger.getLogger(AirTransport.class);
 
     @Override
     public void Vehicle(String typeVehicle, int valueVehicle, int yearProduce) {
@@ -27,6 +27,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
     }
 
     public AirTransport(int lengthWing, String typeEngine, int qtyEngine, int sizeVolume) {
+
         this.airTransports = new LinkedList<AirTransport>();
         this.lengthWing = lengthWing;
         this.typeEngine = typeEngine;
@@ -84,7 +85,9 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
         int coefQtyEngine;
         int coefSizeVolume;
         int result;
-        logger.debug("lengWing" +" "+ this.lengthWing);
+        LOGGER.debug("lengWing" +" "+ this.lengthWing);
+
+
         switch (this.lengthWing) {
             case 30:
                 coefLengthWing = 1;
@@ -95,7 +98,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
             default:
                 coefLengthWing = 5;
         }
-        logger.debug("type engine"+" "+ this.typeEngine);
+        LOGGER.debug("type engine"+" "+ this.typeEngine);
         switch (this.typeEngine) {
             case "reactive":
                 coefTypeEngine = 1;
@@ -106,7 +109,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
             default:
                 coefTypeEngine = 3;
         }
-        logger.debug("Quantity of engine" + " "+ this.qtyEngine);
+        LOGGER.debug("Quantity of engine" + " "+ this.qtyEngine);
         switch (this.qtyEngine) {
             case 2:
                 coefQtyEngine = 1;
@@ -117,7 +120,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
             default:
                 coefQtyEngine = 4;
         }
-        logger.debug("size of volume" + " "+ this.sizeVolume);
+        LOGGER.debug("size of volume" + " "+ this.sizeVolume);
         switch (this.sizeVolume) {
             case 100:
                 coefSizeVolume = 1;
@@ -129,7 +132,7 @@ public class AirTransport extends Transport implements IInsuranceCoeff {
                 coefSizeVolume = 3;
         }
         result = (coefLengthWing + coefTypeEngine + coefQtyEngine + coefSizeVolume)*10000 * K5;
-        logger.debug("Result" +" "+ result);
+        LOGGER.debug("Result" +" "+ result);
         return result;
     }
 

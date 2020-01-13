@@ -13,9 +13,29 @@ import com.InsReal.*;
 
 public class InsuranceObjects {
 
-    private static Logger logger = Logger.getLogger(InsuranceObjects.class);
+    private static final Logger LOGGER = Logger.getLogger(InsuranceObjects.class);
     public static AirTransport setProperties(AirTransport airTransport) throws IOException {
         ScannerInput scannerInput = new ScannerInput();
+        System.out.println("Enter type vehicle 'jet'");
+        String typeVehicle = scannerInput.strInput();
+        airTransport.setTypeVehicle(typeVehicle);
+        try {
+            if (!(typeVehicle == "jet"));
+            throw new MyException("Incorrect type of vehicle enter. Please enter 'Jet' type of vehicle" );
+        }
+        catch (MyException e) {
+            e.printStackTrace(System.out);
+            LOGGER.error( "Try catch"+ " " + e);
+        }
+
+        System.out.println("Enter value of vehicle");
+        int valueVehicle = scannerInput.intInput();
+        airTransport.setValueVehicle(valueVehicle);
+
+        System.out.println("Enter year of produce");
+        int yearProduce = scannerInput.intInput();
+        airTransport.setYearProduce(yearProduce);
+
         System.out.println("Enter length of wings: ");
         int lengthWings = scannerInput.intInput();
         airTransport.setLengthWing(lengthWings);
@@ -29,7 +49,7 @@ public class InsuranceObjects {
         }
         catch (MyException e) {
             e.printStackTrace(System.out);
-            logger.error( "Try catch"+ " " + e);
+            LOGGER.error( "Try catch"+ " " + e);
         }
         airTransport.setTypeEngine(typeEngine);
 
@@ -48,6 +68,26 @@ public class InsuranceObjects {
     public static LandTransport setProperties (LandTransport landTransport) throws IOException{
         ScannerInput scannerInput = new ScannerInput();
 
+        System.out.println("Enter type vehicle 'Truck'");
+        String typeVehicle = scannerInput.strInput();
+        landTransport.setTypeVehicle(typeVehicle);
+        try {
+            if (!(typeVehicle == "Truck"));
+            throw new MyException("Incorrect type of vehicle enter. Please enter 'Truck' type of vehicle" );
+        }
+        catch (MyException e) {
+            e.printStackTrace(System.out);
+            LOGGER.error( "Try catch"+ " " + e);
+        }
+
+        System.out.println("Enter value of vehicle");
+        int valueVehicle = scannerInput.intInput();
+        landTransport.setValueVehicle(valueVehicle);
+
+        System.out.println("Enter year of produce");
+        int yearProduce = scannerInput.intInput();
+        landTransport.setYearProduce(yearProduce);
+
         System.out.println( "Enter full weight: ");
         int fullWeight = scannerInput.intInput();
         landTransport.setFullWeight(fullWeight);
@@ -56,7 +96,7 @@ public class InsuranceObjects {
         int qtyAxis = scannerInput.intInput();
         landTransport.setFullWeight(qtyAxis);
 
-        System.out.println( "Enter quantity of axises: ");
+        System.out.println( "Enter name car: ");
         String nameCar = scannerInput.strInput();
         landTransport.setNameCar(nameCar);
         return landTransport;
@@ -65,6 +105,26 @@ public class InsuranceObjects {
     public static RailwayTransport setProperties (RailwayTransport railwayTransport) throws IOException{
 
         ScannerInput scannerInput = new ScannerInput();
+
+        System.out.println("Enter type vehicle 'Train'");
+        String typeVehicle = scannerInput.strInput();
+        railwayTransport.setTypeVehicle(typeVehicle);
+        try {
+            if (!(typeVehicle == "Train"));
+            throw new MyException("Incorrect type of vehicle enter. Please enter 'Train' type of vehicle" );
+        }
+        catch (MyException e) {
+            e.printStackTrace(System.out);
+            LOGGER.error( "Try catch"+ " " + e);
+        }
+
+        System.out.println("Enter value of vehicle");
+        int valueVehicle = scannerInput.intInput();
+        railwayTransport.setValueVehicle(valueVehicle);
+
+        System.out.println("Enter year of produce");
+        int yearProduce = scannerInput.intInput();
+        railwayTransport.setYearProduce(yearProduce);
 
         System.out.println("Enter type of train: ");
         String typeTrain = scannerInput.strInput();
@@ -84,6 +144,26 @@ public class InsuranceObjects {
     public static WaterTransport setProperties (WaterTransport waterTransport) throws IOException{
 
         ScannerInput scannerInput = new ScannerInput();
+        System.out.println("Enter type vehicle 'Ship'");
+        String typeVehicle = scannerInput.strInput();
+        waterTransport.setTypeVehicle(typeVehicle);
+        try {
+            if (!(typeVehicle == "Ship"));
+            throw new MyException("Incorrect type of vehicle enter. Please enter 'Ship' type of vehicle" );
+        }
+        catch (MyException e) {
+            e.printStackTrace(System.out);
+            LOGGER.error( "Try catch"+ " " + e);
+        }
+
+        System.out.println("Enter value of vehicle");
+        int valueVehicle = scannerInput.intInput();
+        waterTransport.setValueVehicle(valueVehicle);
+
+        System.out.println("Enter year of produce");
+        int yearProduce = scannerInput.intInput();
+        waterTransport.setYearProduce(yearProduce);
+
         System.out.println("Enter volume of water: ");
         int waterVolum = scannerInput.intInput();
         waterTransport.setWaterVolume(waterVolum);

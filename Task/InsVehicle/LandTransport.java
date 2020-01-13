@@ -11,7 +11,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
     private int qtyAxis;
     private String nameCar;
     private ArrayList<LandTransport> landTransports = new ArrayList<LandTransport>();
-    private static Logger logger = Logger.getLogger(LandTransport.class);
+    private static Logger LOGGER = Logger.getLogger(LandTransport.class);
     @Override
     public void Vehicle(String typeVehicle, int valueVehicle, int yearProduce) {
         this.typeVehicle = typeVehicle;
@@ -71,11 +71,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
             int coefqtyAxis = 1;
             int coefnameCar = 1;
             int result = 1;
-         logger.debug("fullWeight" + "" + this.fullWeight);
-
-            Scanner in = new Scanner(System.in);
-            System.out.print("Enter full weight: ");
-            int fullWeight = in.nextInt();
+         LOGGER.debug("fullWeight" + "" + this.fullWeight);
 
             switch (this.fullWeight) {
                 case 30:
@@ -91,9 +87,9 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
                     coeffullWeight = 4;
 
             }
-            logger.debug("Quamtity axis"+ " "+ this.qtyAxis);
-            System.out.print("Enter quantity axis: ");
-            int qtyAxis = in.nextInt();
+            LOGGER.debug("Quantity axis"+ " "+ this.qtyAxis);
+
+
             switch (this.qtyAxis) {
                 case 2:
                     coefqtyAxis = 1;
@@ -108,9 +104,7 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
                     coeffullWeight = 4;
 
             }
-            logger.debug("Name car" +" "+ this.nameCar);
-            System.out.print("Enter name car: ");
-            String nameCar = in.next();
+            LOGGER.debug("Name car" +" "+ this.nameCar);
 
             switch (this.nameCar) {
                 case "DAF":
@@ -124,9 +118,8 @@ public class LandTransport extends Transport implements IInsuranceCoeff {
                     coefnameCar = 3;
             }
 
-
             result = (coeffullWeight + coefqtyAxis + coefnameCar) *1000 * K3;
-            logger.debug("Result"+ " "+ result);
+            LOGGER.debug("Result"+ " "+ result);
             return result;
 
         }
