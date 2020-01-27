@@ -1,0 +1,9 @@
+{
+  "name":"Cometa",
+  "typeVehicle":"train",
+  "valueVihicle":1500,
+  "yearProduce": 2010,
+  "typeTrain":"Electric",
+  "qtyCarriage":5,
+  "maxSpeed":150
+  }

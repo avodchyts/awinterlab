@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="_database.properties">
+
+    </properties>
+
+    <settings>
+        <setting name="useGeneratedKeys" value="true"/>
+        <setting name="defaultStatementTimeout" value="300"/> <!-- seconds -->
+
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Airtransport" type="com.Db.Model.Airtransport"/>
+
+    </typeAliases>
+
+    <environments default="demo">
+    <environment id="demo">
+        <transactionManager type="JDBC"/>
+        <dataSource type="POOLED">
+            <property name="driver" value="${DEMO.db.tlc.driver}"/>
+            <property name="url" value="${DEMO.db.tlc.url}"/>
+            <property name="username" value="${DEMO.db.tlc.user}"/>
+            <property name="password" value="${DEMO.db.tlc.pass}"/>
+
+        </dataSource>
+    </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/AirtransportMapper.xml"/>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/HealthyMapper.xml"/>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/InsCostTypeMapper.xml"/>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/LandtransportMapper.xml"/>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/RailwaytransportMapper.xml"/>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/TransportMapper.xml"/>
+        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/WatertransportMapper.xml"/>
+    </mappers>
+
+</configuration>
