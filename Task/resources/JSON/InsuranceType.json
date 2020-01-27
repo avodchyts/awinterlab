@@ -1,0 +1,26 @@
+{
+ "InsuranceType": "Transport",
+ "TypeTransport": "Airtransport",
+  "Airtransport": [
+    {
+      "name":"Boeing",
+      "typeVehicle":"Jet",
+      "valueVihicle":10000,
+      "yearProduce": 2017,
+      "lengthWunng":30,
+      "typeEngine":"reactive",
+      "QuantityEngine":4,
+      "sizeVolume":100
+    },
+    {
+      "name":"IL",
+      "typeVehicle":"Jet",
+      "valueVihicle":12000,
+      "yearProduce": 2016,
+      "lengthWunng":40,
+      "typeEngine":"reactive",
+      "QuantityEngine":4,
+      "sizeVolume":150
+    }
+  ]
+}
