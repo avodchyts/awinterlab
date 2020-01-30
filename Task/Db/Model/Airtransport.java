@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 public class Airtransport {
-    private String airtransport;
+    private String name;
     //private int valueVehicle;
    // private int yearProduce;
     private int lengthWing;
@@ -14,11 +14,12 @@ public class Airtransport {
     private int idAirtransport;
     private int idTransport;
 
-    public void setAirtransport(String airtransport) {
-        this.airtransport = airtransport;
+
+    public void setName(String name) {
+        this.name = name;
     }
     public String getAirtransport(){
-        return airtransport;
+        return name;
     }
 
   /*  public void setValueVehicle(int valueVehicle){
@@ -82,11 +83,11 @@ public class Airtransport {
         return idTransport;
     }
 
-    public List<Connection> getConnections(List<Connection> connections) {
+   /* public List<Connection> getConnections(List<Connection> connections) {
         return connections;
-    }
+    }*/
 
-    public String toString (){return "Airtransport {" +"IdAirTransport ="+" "+ idAirtransport+" "+"Airtransport="+airtransport+" "+"LengthWing="+lengthWing+" "+"TypeEngine="+typeEngine+" "+"QuantityEngine="+quantityEngine+" "+"SizeVolume="+sizeVolume+" "+"IdTransport ="+idTransport+" "+"}"; }
+    public String toString (){return "Airtransport {" +"IdAirTransport ="+" "+ idAirtransport+" "+"Name="+name+" "+"LengthWing="+lengthWing+" "+"TypeEngine="+typeEngine+" "+"QuantityEngine="+quantityEngine+" "+"SizeVolume="+sizeVolume+" "+"IdTransport ="+idTransport+" "+"}"; }
 
 
 }
