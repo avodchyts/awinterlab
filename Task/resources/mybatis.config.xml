@@ -16,6 +16,8 @@
 
     <typeAliases>
         <typeAlias alias="Airtransport" type="com.Db.Model.Airtransport"/>
+        <typeAlias alias="AirPojo" type="com.Db.POJO.AirtransportPOJO"/>
+        <typeAlias alias="Healthy" type="com.Db.Model.Healthy"/>
 
     </typeAliases>
 
@@ -36,11 +38,7 @@
     <mappers>
         <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/AirtransportMapper.xml"/>
         <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/HealthyMapper.xml"/>
-        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/InsCostTypeMapper.xml"/>
-        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/LandtransportMapper.xml"/>
-        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/RailwaytransportMapper.xml"/>
-        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/TransportMapper.xml"/>
-        <mapper url="file:///C:/Users/user/Desktop/InsCompanyMaven/src/main/resources/mapping/WatertransportMapper.xml"/>
+
     </mappers>
 
 </configuration>
