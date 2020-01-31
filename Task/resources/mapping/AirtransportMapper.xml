@@ -9,4 +9,14 @@
 
     </select>
 
+    <select id="getAirtransport" resultType="Airtransport">
+        select * from airtransport
+
+    </select>
+
+    <insert id="insertAirtransport"  >
+            insert  into airtransport (idAirtransport, name,lengthWing,typeEngine,quantityEngine,sizeVolume,idTransport)
+        values (#{idAirtransport}, #{name}, #{lengthWing}, #{typeEngine},#{quantityEngine},#{sizeVolume},#{idTransport})
+    </insert>
+
 </mapper>
