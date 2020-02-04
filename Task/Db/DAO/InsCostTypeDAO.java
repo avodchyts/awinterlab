@@ -8,14 +8,14 @@ import org.apache.log4j.Logger;
 
 public class InsCostTypeDAO extends OpenSession {
     private static final Logger LOGGER = Logger.getLogger(InsCostTypeDAO.class);
-    SqlSessionFactory ssf;
+    SqlSessionFactory sqlSessionFactory;
 
-public InsCostTypeDAO (SqlSessionFactory ssf){
-    this.ssf=ssf;
+public InsCostTypeDAO (SqlSessionFactory sqlSessionFactory){
+    this.sqlSessionFactory=sqlSessionFactory;
 }
 
 public InsCostTypeMapper getInsCostTypeById(int Id) {
-    try (SqlSession session = ssf.openSession()) {
+    try (SqlSession session = sqlSessionFactory.openSession()) {
         InsCostTypeMapper mapper = session.getMapper(InsCostTypeMapper.class);
         return mapper.getInsCostTypeById(Id);
     } catch (Exception e) {

@@ -1,6 +1,8 @@
 package com.company;
 
 import com.Db.POJO.AirtransportPOJO;
+import com.Db.POJO.JacksonPojoToJson;
+import com.Db.POJO.JsonToPojo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -16,59 +18,49 @@ import com.Db.Model.OpenSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 
 public final class Executor {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
-     ObjectMapper mapper = new ObjectMapper();
-       mapper.enable(SerializationFeature.INDENT_OUTPUT);
-    SqlSessionFactory ssf = new OpenSession().getOpenSession();
-     Airtransport boeing = new AirtransportDAO(ssf).getAirtransportById(2);
+    SqlSessionFactory sqlSessionFactory = new OpenSession().getOpenSession();
+    Airtransport airtransport = new AirtransportDAO(sqlSessionFactory).getAirtransportById(2);
 
-     FileOutputStream fileOutputStream = new FileOutputStream("boeing.json");
-     mapper.writeValue(fileOutputStream, boeing);
-     fileOutputStream.close();
-     System.out.println(boeing);
+    List<Airtransport> airtransports =new AirtransportDAO(sqlSessionFactory).getAirtransport();
+    for(Airtransport jets:airtransports);
 
+    JsonToPojo jsonToPojo = new JsonToPojo();
+    AirtransportPOJO airtransportPOJO =jsonToPojo.JsonToPojo("boeing.json");
 
-        ObjectMapper mapper1 = new ObjectMapper();
-        AirtransportPOJO airbus = new AirtransportPOJO();
-        airbus.setName("AirBus");
-        airbus.setLengthWing(50);
-        airbus.setTypeEngine("turboreactive");
-        airbus.setQuantityEngine(4);
-        airbus.setSizeVolume(200);
-        airbus.setIdAirtransport(3);
-        airbus.setIdTransport(1);
+    Airtransport boeing2= new Airtransport();
+    boeing2.setTypeEngine(airtransportPOJO.getTypeEngine());
+    boeing2.setName(airtransportPOJO.getName());
+    boeing2.setSizeVolume(airtransportPOJO.getSizeVolume());
+    boeing2.setQuantityEngine(airtransportPOJO.getQuantityEngine());
+    boeing2.setLengthWing(airtransportPOJO.getLengthWing());
+    boeing2.setIdAirtransport(airtransportPOJO.getIdAirtransport());
+    boeing2.setIdTransport(airtransportPOJO.getIdTransport());
 
-       String AirBusJson = mapper1.writeValueAsString(airbus);
-        System.out.println(AirBusJson);
+    AirtransportDAO boeingnew =new AirtransportDAO(sqlSessionFactory);
+    boeingnew.insertAirtransport(boeing2);
 
-        FileOutputStream fileOutputStream2 = new FileOutputStream("AirBus.json");
-        mapper1.writeValue(fileOutputStream2, airbus);
-        fileOutputStream2.close();
+     List<Airtransport> airtransports1 =new AirtransportDAO(sqlSessionFactory).getAirtransport();
+     for(Airtransport jets:airtransports1) {
+              JacksonPojoToJson pojoToJson = new JacksonPojoToJson();
+       pojoToJson.writeJson(jets);
+       pojoToJson.toJsonFile(jets, "airtransports");
+   }
 
-        System.out.println("======================");
+   Iterator<Airtransport> airtransportIterator = airtransports.iterator();
+   while(airtransportIterator.hasNext()){airtransportIterator.next();
 
-        ObjectMapper mapper3 = new ObjectMapper();
-        mapper3.enable(SerializationFeature.INDENT_OUTPUT);
-
-        InputStream fileInputStream3 = new FileInputStream("AirBus.json");
-        Airtransport airtransport =mapper3.readValue(fileInputStream3,Airtransport.class);
-        fileInputStream3.close();
-        System.out.println(airtransport);
-     SqlSessionFactory ssf2 = new OpenSession().getOpenSession();
-         Airtransport bus = new AirtransportDAO(ssf2).insertAirtransport(airtransport);
-        System.out.println(bus);
-       System.out.println("====================");
-        SqlSessionFactory ssf4 = new OpenSession().getOpenSession();
-        Airtransport air= new AirtransportDAO(ssf4).getAirtransportById(3);
-        System.out.println(air);
-
-
-
+       JacksonPojoToJson pojoToJson = new JacksonPojoToJson();
+       pojoToJson.writeJson((Airtransport) airtransports);
+       pojoToJson.toJsonFile((Airtransport) airtransports, "airtransports1");
+   }
     }
 }

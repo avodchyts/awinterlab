@@ -1,4 +1,6 @@
 package com.Db.POJO;
+import com.Db.Model.Airtransport;
+import com.InsVehicle.Transport;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -6,27 +8,36 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import org.apache.log4j.Logger;
 public class JacksonPojoToJson {
-public static void main(String[] args) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
+
+    private static final Logger LOGGER = Logger.getLogger(JacksonPojoToJson.class);
+    private ObjectMapper mapper;
+
+    public JacksonPojoToJson() {
+
+        mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        AirtransportPOJO apojo = new AirtransportPOJO();
-        apojo.setName("AirBus");
-        apojo.setLengthWing(50);
-        apojo.setTypeEngine("turboreactive");
-        apojo.setQuantityEngine(4);
-        apojo.setSizeVolume(200);
-        apojo.setIdAirtransport(3);
-        apojo.setIdTransport(1);
+    }
 
-    String AirJson = mapper.writeValueAsString(apojo);
-    System.out.println(AirJson);
+    public String writeJson(Airtransport airtransport) throws IOException {
+     try {
+         String objectJson = mapper.writeValueAsString(airtransport);
+         return objectJson;
+     }catch(IOException ew){ew.printStackTrace();LOGGER.error(ew);}
+    return writeJson(airtransport);
+    }
 
-    FileOutputStream fileOutputStream = new FileOutputStream("Air.json");
-    mapper.writeValue(fileOutputStream, apojo);
-    fileOutputStream.close();
 
+    public void toJsonFile(Airtransport airtransport, String filename) throws IOException {
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(filename + ".json");
+            mapper.writeValue(fileOutputStream, airtransport);
+            fileOutputStream.close();
+        } catch (IOException e) {LOGGER.debug(e); e.printStackTrace();
+        throw new NullPointerException();
+        }
     }
 }
+
 

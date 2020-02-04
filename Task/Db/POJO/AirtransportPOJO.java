@@ -1,6 +1,7 @@
 package com.Db.POJO;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AirtransportPOJO {
@@ -12,20 +13,24 @@ public class AirtransportPOJO {
         private int sizeVolume;
         private int idAirtransport;
         private int idTransport;
-
+        private List<AirtransportPOJO> airtransportPOJOs = new ArrayList<AirtransportPOJO>();
         public AirtransportPOJO() {}
 
-        public AirtransportPOJO(String name,int lengthWing, String typeEngine,int quantityEngine,int sizeVolue,int idAirtransport, int idTransport){
+        public AirtransportPOJO(String name,int sizeVolue,int idAirtransport){
             this.name=name;
-            this.lengthWing= lengthWing;
-            this.typeEngine = typeEngine;
-            this.quantityEngine= quantityEngine;
             this.sizeVolume= sizeVolue;
             this.idAirtransport= idAirtransport;
-            this.idTransport=idTransport;
         }
 
-        public void setName(String name) {
+    public void setAirtransportPOJOs(List<AirtransportPOJO> airtransportPOJOs) {
+        this.airtransportPOJOs = airtransportPOJOs;
+    }
+
+    public List<AirtransportPOJO> getAirtransportPOJOs() {
+        return airtransportPOJOs;
+    }
+
+    public void setName(String name) {
             this.name = name;
         }
         public String getName(){

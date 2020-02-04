@@ -1,24 +1,31 @@
 package com.Db.POJO;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+
+
 public class JsonToPojo {
-    public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
+     ObjectMapper mapper;
+
+    public JsonToPojo(){
+
+        mapper = new ObjectMapper();
+    }
+
+    public AirtransportPOJO jsonToPojo(String filename) throws IOException {
+
+        try {
+            InputStream fileInputStream = new FileInputStream(filename);
+            AirtransportPOJO airtransportPOJO = mapper.readValue(fileInputStream, AirtransportPOJO.class);
+            fileInputStream.close();
+        }catch (IOException aio){aio.printStackTrace();}
 
 
-        ObjectMapper mapper = new ObjectMapper();
 
-        InputStream fileInputStream = new FileInputStream("airtransport.json");
-
-        AirtransportPOJO airtransport =mapper.readValue(fileInputStream,AirtransportPOJO.class);
-        fileInputStream.close();
-
+ return jsonToPojo(filename);
     }
 }
