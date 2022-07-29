@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Calculation {
     private static Logger logger = Logger.getLogger(Calculation.class);
+    //comment
     public static void InsuranceCalculation() throws IOException {
 
         ArrayList<String> typeInsurances = new ArrayList<String>();
