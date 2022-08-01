@@ -35,7 +35,7 @@ public class Calculation {
             case "Health":
                 Health.HealthInsurance();
                 break;
-            default: System.out.println ("You calculated values of insurance ");
+            default: System.out.println ("You calculated values of insurance was not selected ");
         }
     }
 }
