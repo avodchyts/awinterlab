@@ -9,6 +9,4 @@ public interface IInsuranceCoeff {
     int K6=6; //coefficient for RailwayTransport
     int K7 =7; ////coefficient for TouristHealth
       public void insuranceCoef(int n);
-
-
 }
